@@ -1,0 +1,11 @@
+version: '3.8'
+name: nextjs-edu-db
+services:
+  postgres:
+    container_name: my-tracker-base
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_PASSWORD=root
+      - POSTGRES_USER=admin
+    image: postgres:15.3-alpine3.18

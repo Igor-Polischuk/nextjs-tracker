@@ -1,0 +1,41 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        Int         @id @default(autoincrement())
+  name      String?
+  Nutrition Nutrition[]
+}
+
+model Food {
+  id            Int      @id @default(autoincrement())
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+  foodName      String
+  calories      Int
+  proteins      Int?
+  fats          Int?
+  carbohydrates Int?
+}
+
+model Nutrition {
+  id            Int      @id @default(autoincrement())
+  userId        User     @relation(fields: [id], references: [id])
+  foodName      String
+  date          DateTime
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+  calories      Int
+  proteins      Int?
+  fats          Int?
+  carbohydrates Int?
+}
