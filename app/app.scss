@@ -6,10 +6,10 @@
 .app-wrapper {
   width: 100%;
   min-height: 100vh;
-  padding: 50px 30px;
+  padding: 50px 30px 70px;
 
   @media (max-width: $sm) {
-    padding: 20px 12px;
+    padding: 20px 12px 90px;
   }
 
   nav {
