@@ -4,6 +4,8 @@ import { siteConfig } from "@/config/site";
 import { fontSans } from "@/config/fonts";
 import { Providers } from "./providers";
 import clsx from "clsx";
+import Navigation from "@/components/navigation";
+import "./app.scss";
 
 export const metadata: Metadata = {
   title: {
@@ -32,15 +34,22 @@ export default function RootLayout({
       <head />
       <body
         className={clsx(
-          "min-h-screen bg-background font-sans antialiased",
+          "min-h-screen bg-background font-sans antialiased flex justify-center",
           fontSans.variable
         )}
       >
-        <Providers themeProps={{ attribute: "class", defaultTheme: "dark" }}>
-          <main className="container mx-auto max-w-7xl pt-16 px-6 flex-grow">
-            {children}
+        <div className="app-wrapper min-h-screen max-w-5xl">
+          <main className="container mx-auto max-w-7xl flex-grow">
+            <Providers
+              themeProps={{ attribute: "class", defaultTheme: "dark" }}
+            >
+              {children}
+            </Providers>
           </main>
-        </Providers>
+          <nav>
+            <Navigation />
+          </nav>
+        </div>
       </body>
     </html>
   );
