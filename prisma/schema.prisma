@@ -11,9 +11,21 @@ datasource db {
 }
 
 model User {
-  id        Int         @id @default(autoincrement())
-  name      String?
-  Nutrition Nutrition[]
+  id               Int                @id @default(autoincrement())
+  name             String
+  username         String
+  Nutrition        Nutrition[]
+  weight           Float
+  height           String
+  goal             Goal               @default(MAINTENACE)
+  UserWeigtDynamic UserWeigtDynamic[]
+}
+
+model UserWeigtDynamic {
+  id     Int      @id @default(autoincrement())
+  date   DateTime
+  weight Float
+  userId User     @relation(fields: [id], references: [id])
 }
 
 model Food {
@@ -38,4 +50,10 @@ model Nutrition {
   proteins      Int?
   fats          Int?
   carbohydrates Int?
+}
+
+enum Goal {
+  BULKING
+  CUTTING
+  MAINTENACE
 }
