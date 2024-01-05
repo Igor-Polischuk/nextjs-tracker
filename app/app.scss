@@ -1,12 +1,24 @@
-.app-wrapper {
-    display: grid;
-    grid-template-rows: 1fr 60px;
-    border: 1px solid #3d3d3d;
-    width: 100%;
-    padding: 50px 20px 0;
+@import "@/styles/config/breakpoints.scss";
+* {
+    // border: 1px solid red;
+}
 
-    nav {
-        display: flex;
-        justify-content: center;
-    }
+.app-wrapper {
+  width: 100%;
+  min-height: 100vh;
+  padding: 50px 30px;
+
+  @media (max-width: $sm) {
+    padding: 20px 12px;
+  }
+
+  nav {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    padding: 10px;
+  }
 }

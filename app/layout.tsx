@@ -1,4 +1,4 @@
-import "@/styles/globals.css";
+import "@/styles/globals.scss";
 import { Metadata } from "next";
 import { siteConfig } from "@/config/site";
 import { fontSans } from "@/config/fonts";
@@ -31,7 +31,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <head />
+      <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+      </head>
       <body
         className={clsx(
           "min-h-screen bg-background font-sans antialiased flex justify-center",
@@ -46,7 +48,7 @@ export default function RootLayout({
               {children}
             </Providers>
           </main>
-          <nav>
+          <nav className="backdrop-blur-sm">
             <Navigation />
           </nav>
         </div>
