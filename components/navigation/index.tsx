@@ -7,20 +7,22 @@ import styles from "./style.module.scss";
 
 export default function Navigation() {
   const path = usePathname();
+  const secondSlashIndex = path.indexOf('/', 1);
+  const activePageKey = secondSlashIndex !== -1 ? path.slice(0, secondSlashIndex) : path;
+
   return (
     <Tabs
       aria-label="Options"
       color="primary"
-      variant="bordered"
-      selectedKey={path}
-      // variant="solid"
+      // variant="bordered"
+      selectedKey={activePageKey}
+      variant="solid"
     >
       <Tab
         key="/"
         title={
           <Link href="/" className={styles.link}>
             <div className="flex items-center space-x-2">
-              {/* <GalleryIcon/> */}
               <span>Me</span>
             </div>
           </Link>
@@ -31,7 +33,6 @@ export default function Navigation() {
         title={
           <Link href="/diet" className={styles.link}>
             <div className="flex items-center space-x-2">
-              {/* <MusicIcon/> */}
               <span>Diet</span>
             </div>
           </Link>
@@ -42,7 +43,6 @@ export default function Navigation() {
         title={
           <Link href="/fitness" className={styles.link}>
             <div className="flex items-center space-x-2">
-              {/* <VideoIcon/> */}
               <span>Fitness</span>
             </div>
           </Link>

@@ -2,7 +2,7 @@ import NutritionTable from "@/components/NutritionTable";
 import TodayNutritionStats from "@/components/TodayNutritionStats";
 import { Button } from "@nextui-org/button";
 
-export default async function Home() {
+export default async function Page() {
 
   return (
     <section>

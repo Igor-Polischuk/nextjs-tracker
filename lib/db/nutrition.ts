@@ -24,3 +24,17 @@ export async function getDailyNutritionData(day: Date, userId: number) {
 
     return data;
 }
+
+export async function getFoodList(query?: string, take = 10) {
+    const food = await prisma.food.findMany({
+        where: {
+            foodName: {
+                contains: query,
+                mode: 'insensitive'
+            },
+        },
+        take,
+    })
+
+    return food;
+}
