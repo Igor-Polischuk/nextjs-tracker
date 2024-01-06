@@ -22,3 +22,17 @@
     padding: 10px;
   }
 }
+
+.params-card {
+  margin-top: 20px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: 160px;
+  gap: 40px;
+
+  @media (max-width: $sm) {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 150px);
+    gap: 10px;
+  }
+}
