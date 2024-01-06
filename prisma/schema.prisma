@@ -16,9 +16,12 @@ model User {
   username         String
   Nutrition        Nutrition[]
   weight           Float
-  height           String
+  height           Float
   goal             Goal               @default(MAINTENACE)
   UserWeigtDynamic UserWeigtDynamic[]
+  sex Sex
+  age Int
+  activityLevel ActivityLevel
 }
 
 model UserWeigtDynamic {
@@ -56,4 +59,17 @@ enum Goal {
   BULKING
   CUTTING
   MAINTENACE
+}
+
+enum Sex {
+  MALE
+  FEMALE
+}
+
+enum ActivityLevel {
+  LITTLE_TO_NO_EXERCISE @map("1.2")
+  LIGHT_EXERCISE @map("1.37")
+  MODERATE_EXERCISE @map("1.55")
+  VERY_ACTIVE @map("1.725")
+  EXTRA_ACTIVE @map("1.9")
 }

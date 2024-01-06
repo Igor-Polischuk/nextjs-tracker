@@ -1,17 +1,21 @@
-import DayCaloriesCounter from "@/components/DayCaloriesCounter";
 import ParamsCard from "@/components/ParamCard";
 import TodayNutritionStats from "@/components/TodayNutritionStats";
-import { Button } from "@nextui-org/button";
+import { getBMI, getUserBmr } from "@/lib/body-params";
+import { getCurrentUser } from "@/lib/db/user";
 
-export default function Home() {
+export default async function Home() {
+  const user = await getCurrentUser();
+  const bmi = getBMI(user.weight, user.height);
+  const bmr = getUserBmr(user);
+
   return (
     <div>
-      <h1 className="text-5xl font-bold">Hi, Username!</h1>
+      <h1 className="text-5xl font-bold">Hi, {user.username}!</h1>
       <div className="params-card">
-        <ParamsCard title="Weight" value="80kg" />
-        <ParamsCard title="Height" value="181cm" />
-        <ParamsCard title="BMI" value="25" />
-        <ParamsCard title="Calories" value="2600" />
+        <ParamsCard title="Weight" value={`${user.weight}kg` }/>
+        <ParamsCard title="Height" value={`${user.height}cm` }/>
+        <ParamsCard title="BMI" value={`${bmi}`} />
+        <ParamsCard title="Base kkal" value={`${bmr}`} />
       </div>
       <div className="mt-5 mb-5">
         <TodayNutritionStats />
