@@ -4,9 +4,9 @@ import { Divider } from "@nextui-org/divider";
 
 type PropTypes = {
   name: string;
-  proteins: number;
-  fats: number;
-  carbohydrates: number;
+  proteins: number | null;
+  fats: number | null;
+  carbohydrates: number | null;
   energy: number;
   time: string;
   amount: number;

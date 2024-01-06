@@ -1,9 +1,9 @@
-import DayCaloriesCounter from "@/components/DayCaloriesCounter";
 import NutritionTable from "@/components/NutritionTable";
 import TodayNutritionStats from "@/components/TodayNutritionStats";
 import { Button } from "@nextui-org/button";
 
-export default function Home() {
+export default async function Home() {
+
   return (
     <section>
       <TodayNutritionStats />
