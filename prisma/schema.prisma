@@ -19,9 +19,9 @@ model User {
   height           Float
   goal             Goal               @default(MAINTENACE)
   UserWeigtDynamic UserWeigtDynamic[]
-  sex Sex
-  age Int
-  activityLevel ActivityLevel
+  sex              Sex
+  age              Int
+  activityLevel    ActivityLevel
 }
 
 model UserWeigtDynamic {
@@ -32,27 +32,26 @@ model UserWeigtDynamic {
 }
 
 model Food {
-  id            Int      @id @default(autoincrement())
-  createdAt     DateTime @default(now())
-  updatedAt     DateTime @updatedAt
+  id            Int         @id @default(autoincrement())
+  createdAt     DateTime    @default(now())
+  updatedAt     DateTime    @updatedAt
   foodName      String
   calories      Int
-  proteins      Int?
-  fats          Int?
-  carbohydrates Int?
+  proteins      Float
+  fats          Float
+  carbohydrates Float
+  Nutrition     Nutrition[]
 }
 
 model Nutrition {
   id            Int      @id @default(autoincrement())
   userId        User     @relation(fields: [id], references: [id])
-  foodName      String
-  date          DateTime
+  food          Food     @relation(fields: [foodId], references: [id])
+  date          DateTime @default(now())
   createdAt     DateTime @default(now())
   updatedAt     DateTime @updatedAt
-  calories      Int
-  proteins      Int?
-  fats          Int?
-  carbohydrates Int?
+  foodId        Int
+  amount        Int
 }
 
 enum Goal {
@@ -68,8 +67,8 @@ enum Sex {
 
 enum ActivityLevel {
   LITTLE_TO_NO_EXERCISE @map("1.2")
-  LIGHT_EXERCISE @map("1.37")
-  MODERATE_EXERCISE @map("1.55")
-  VERY_ACTIVE @map("1.725")
-  EXTRA_ACTIVE @map("1.9")
+  LIGHT_EXERCISE        @map("1.37")
+  MODERATE_EXERCISE     @map("1.55")
+  VERY_ACTIVE           @map("1.725")
+  EXTRA_ACTIVE          @map("1.9")
 }

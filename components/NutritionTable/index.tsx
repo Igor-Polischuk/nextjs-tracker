@@ -7,14 +7,27 @@ import { getCurrentUser } from "@/lib/db/user";
 export default async function NutritionTable() {
   const user = await getCurrentUser()
   const nutritionData = await getDailyNutritionData(new Date(), user.id)
+
+  const todayMealsData = nutritionData.map(mealData => {
+    return {
+      name: mealData.food.foodName,
+      time: mealData.date.toDateString(),
+      proteins: mealData.food.proteins / 100 * mealData.amount,
+      fats: mealData.food.fats / 100 * mealData.amount,
+      carbohydrates: mealData.food.carbohydrates / 100 * mealData.amount,
+      energy: mealData.food.calories / 100 * mealData.amount,
+      amount: mealData.amount,
+    }
+  })
+
   return (
     <div className="mt-10">
       <h2 className="text-3xl mb-6">You ate today:</h2>
       {nutritionData.length ? <ScrollShadow hideScrollBar className="h-[500px] w-full">
-        {nutritionData.map(({calories, foodName, date, ...meal}, i) => {
+        {todayMealsData.map((meal, i) => {
           return (
             <div className="mb-4" key={i}>
-              <MealItem {...meal} energy={calories} amount={123} name={foodName} time={date.toDateString()}/>
+              <MealItem {...meal}/>
             </div>
           );
         })}

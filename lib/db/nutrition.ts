@@ -1,4 +1,3 @@
-import { User } from "@prisma/client";
 import { prisma } from ".";
 
 export async function getDailyNutritionData(day: Date, userId: number) {
@@ -17,6 +16,9 @@ export async function getDailyNutritionData(day: Date, userId: number) {
             userId: {
                 id: userId
             }
+        },
+        include: {
+            food: true
         }
     });
 
