@@ -44,14 +44,15 @@ model Food {
 }
 
 model Nutrition {
-  id            Int      @id @default(autoincrement())
-  userId        User     @relation(fields: [id], references: [id])
-  food          Food     @relation(fields: [foodId], references: [id])
-  date          DateTime @default(now())
-  createdAt     DateTime @default(now())
-  updatedAt     DateTime @updatedAt
-  foodId        Int
-  amount        Int
+  id        Int      @id @default(autoincrement())
+  user      User     @relation(fields: [userId], references: [id])
+  food      Food     @relation(fields: [foodId], references: [id])
+  date      DateTime @default(now())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  foodId    Int
+  userId    Int
+  amount    Int
 }
 
 enum Goal {
