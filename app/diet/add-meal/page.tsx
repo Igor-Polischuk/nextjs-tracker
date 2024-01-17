@@ -9,10 +9,10 @@ import { CreateMealForm, CreateMealSchema } from "./schema";
 import { Food } from "@prisma/client";
 import FoodList from "./FoodList";
 import ControlledInput from "@/components/ControlledInput";
-import { useRouter } from 'next/navigation'
+import { useRouter } from "next/navigation";
 
 export default function Page() {
-  const router = useRouter()
+  const router = useRouter();
   const [showFoodList, setShowFoodList] = useState(false);
   const [foodList, setFoodList] = useState<Food[]>([]);
   const [selectedFood, setSelectedFood] = useState<null | Food>(null);
@@ -20,9 +20,8 @@ export default function Page() {
     resolver: yupResolver(CreateMealSchema),
     mode: "onChange",
   });
-
   useEffect(() => {
-    fetch("http://localhost:3000/api/food")
+    fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/food`)
       .then((res) => res.json())
       .then(setFoodList);
   }, []);
@@ -47,7 +46,7 @@ export default function Page() {
   };
 
   const addNutrition = async (data: CreateMealForm) => {
-    await fetch("http://localhost:3000/api/nutrition", {
+    await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/nutrition`, {
       method: "POST",
       body: JSON.stringify(data),
       headers: {
@@ -55,7 +54,7 @@ export default function Page() {
       },
     });
 
-    router.push("/diet")
+    router.push("/diet");
   };
 
   return (
