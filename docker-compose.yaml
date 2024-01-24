@@ -1,11 +1,28 @@
 version: '3.8'
-name: nextjs-edu-db
+name: nextjs-edu-aws
+
 services:
   postgres:
-    container_name: my-tracker-base
+    container_name: 'next-postgres'
+    networks:
+     - app-tier
     ports:
       - "5432:5432"
     environment:
       - POSTGRES_PASSWORD=root
       - POSTGRES_USER=admin
     image: postgres:15.3-alpine3.18
+  nextapp:
+    depends_on:
+    - postgres
+    container_name: nextapp
+    networks:
+     - app-tier
+    image: nextapp
+    build: .
+    ports:
+      - "3000:3000"
+
+networks:
+  app-tier:
+    driver: bridge
