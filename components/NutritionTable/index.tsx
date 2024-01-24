@@ -2,11 +2,14 @@ import React from "react";
 import MealItem from "./MealItem";
 import { ScrollShadow } from "@nextui-org/scroll-shadow";
 import { getDailyNutritionData } from "@/lib/db/nutrition";
-import { getCurrentUser } from "@/lib/db/user";
+import {User } from "@prisma/client";
 
-export default async function NutritionTable() {
-  const user = await getCurrentUser()
-  const nutritionData = await getDailyNutritionData(new Date(), user.id)
+type PropTypes = {
+  user: User
+  nutritionData: Awaited<ReturnType<typeof getDailyNutritionData>>
+}
+
+export default function NutritionTable({user, nutritionData}: PropTypes) {
 
   const todayMealsData = nutritionData.map(mealData => {
     return {
