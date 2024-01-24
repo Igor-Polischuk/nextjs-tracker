@@ -10,7 +10,7 @@ export default async function Page() {
 
   return (
     <section>
-      <TodayNutritionStats />
+      <TodayNutritionStats nutritionData={nutritionData} user={user}/>
       <NutritionTable user={user} nutritionData={nutritionData}/>
       <Button
           className="min-w-full mt-5 sm:mt-0 sm:w-auto max-w-[382px]"

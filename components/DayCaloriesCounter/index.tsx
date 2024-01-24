@@ -1,13 +1,16 @@
 /* eslint-disable react/no-unescaped-entities */
 import { getPFC, getUserCaloriesNorm } from "@/lib/body-params";
 import { getDailyNutritionData } from "@/lib/db/nutrition";
-import { getCurrentUser } from "@/lib/db/user";
 import { calculateNutrition } from "@/lib/nutrition";
+import { User } from "@prisma/client";
 import React from "react";
 
-export default async function DayCaloriesCounter() {
-  const user = await getCurrentUser();
-  const nutritionData = await getDailyNutritionData(new Date(), user.id)
+type PropTypes = {
+  user: User
+  nutritionData: Awaited<ReturnType<typeof getDailyNutritionData>>
+}
+
+export default function DayCaloriesCounter({nutritionData, user}: PropTypes) {
   const calories = getUserCaloriesNorm(user);
   const {carbohydrates, fats, proteins} = getPFC(user.weight);
   const eatenData = calculateNutrition(nutritionData)

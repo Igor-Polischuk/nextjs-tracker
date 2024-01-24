@@ -2,12 +2,19 @@ import { Button } from "@nextui-org/button";
 import React from "react";
 import DayCaloriesCounter from "../DayCaloriesCounter";
 import Link from "next/link";
+import { getDailyNutritionData } from "@/lib/db/nutrition";
+import { User } from "@prisma/client";
 
-export default function TodayNutritionStats() {
+type PropTypes = {
+  user: User
+  nutritionData: Awaited<ReturnType<typeof getDailyNutritionData>>
+}
+
+export default function TodayNutritionStats({nutritionData, user}: PropTypes) {
   return (
     <div className="flex flex-col  justify-between items-center sm:flex-row">
       <div className="self-start">
-        <DayCaloriesCounter />
+        <DayCaloriesCounter nutritionData={nutritionData} user={user}/>
       </div>
       <Button
         className="w-full mt-5 sm:mt-0 sm:w-auto p-0"

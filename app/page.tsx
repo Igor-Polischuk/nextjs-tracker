@@ -1,10 +1,12 @@
 import ParamsCard from "@/components/ParamCard";
 import TodayNutritionStats from "@/components/TodayNutritionStats";
 import { getBMI, getUserBmr } from "@/lib/body-params";
+import { getDailyNutritionData } from "@/lib/db/nutrition";
 import { getCurrentUser } from "@/lib/db/user";
 
 export default async function Home() {
-  const user = await getCurrentUser();
+  const user = await getCurrentUser()
+  const nutritionData = await getDailyNutritionData(new Date(), user.id)
   const bmi = getBMI(user.weight, user.height);
   const bmr = getUserBmr(user);
 
@@ -18,7 +20,7 @@ export default async function Home() {
         <ParamsCard title="Base kkal" value={`${bmr}`} />
       </div>
       <div className="mt-5 mb-5">
-        <TodayNutritionStats />
+        <TodayNutritionStats nutritionData={nutritionData} user={user}/>
       </div>
     </div>
   );
