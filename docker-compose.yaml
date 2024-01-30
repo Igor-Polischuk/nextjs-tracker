@@ -1,23 +1,22 @@
-version: '3.8'
+version: "3.8"
 name: nextjs-edu-aws
 
 services:
   postgres:
-    container_name: 'next-postgres'
     networks:
-     - app-tier
+      - app-tier
     ports:
       - "5432:5432"
     environment:
       - POSTGRES_PASSWORD=root
       - POSTGRES_USER=admin
     image: postgres:15.3-alpine3.18
+    
   nextapp:
     depends_on:
-    - postgres
-    container_name: nextapp
+      - postgres
     networks:
-     - app-tier
+      - app-tier
     image: nextapp
     build: .
     ports:
