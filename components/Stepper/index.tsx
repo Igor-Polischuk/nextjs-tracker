@@ -11,7 +11,7 @@ export type StepperPage = {
 
 type PropTypes = {
   pages: StepperPage[];
-  title?: (currentPage: number) => string | string;
+  title?: ((currentPage: number) => string) | string;
   onFinish: () => void;
 };
 
@@ -38,11 +38,11 @@ export default function Stepper({ pages, onFinish, title }: PropTypes) {
     : `Step ${currentPage + 1}/${totalPages}`;
 
   return (
-    <Card className="w-full max-w-xl">
+    <Card className="w-full max-w-xl h-[450px] flex">
       <CardHeader>
         <h1>{stepperTitle}</h1>
       </CardHeader>
-      <CardBody>{pages[currentPage].element}</CardBody>
+      <CardBody className="justify-center">{pages[currentPage].element}</CardBody>
       <CardFooter className="flex justify-stretch gap-5">
         <Button
           onClick={() => setCurrentPage((page) => --page)}
