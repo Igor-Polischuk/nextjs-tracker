@@ -1,4 +1,4 @@
-import { CreateMealForm } from "@/app/diet/add-meal/schema";
+import { CreateMealForm } from "@/app/(dashboard)/diet/add-meal/schema";
 import { addNutrition } from "@/sevices/db/nutrition";
 import { getCurrentUser } from "@/sevices/db/user";
 import { NextResponse } from "next/server";

@@ -4,7 +4,6 @@ import { siteConfig } from "@/config/site";
 import { fontSans } from "@/config/fonts";
 import { Providers } from "./providers";
 import clsx from "clsx";
-import Navigation from "@/components/navigation";
 import "./app.scss";
 
 export const metadata: Metadata = {
@@ -48,9 +47,6 @@ export default function RootLayout({
               {children}
             </Providers>
           </main>
-          <nav className="backdrop-blur-sm">
-            <Navigation />
-          </nav>
         </div>
       </body>
     </html>
