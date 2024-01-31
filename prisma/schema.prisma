@@ -12,8 +12,10 @@ datasource db {
 
 model User {
   id               Int                @id @default(autoincrement())
-  name             String
+  firstName        String
+  lastName         String
   username         String
+  password         String
   Nutrition        Nutrition[]
   weight           Float
   height           Float
