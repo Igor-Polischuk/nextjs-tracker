@@ -1,22 +1,20 @@
 "use client";
 
-import { Button } from "@nextui-org/button";
 import { yupResolver } from "@hookform/resolvers/yup/dist/yup";
-import { Input } from "@nextui-org/input";
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { CreateMealForm, CreateMealSchema } from "./schema";
 import { Food } from "@prisma/client";
-import FoodList from "./FoodList";
-import ControlledInput from "@/components/ControlledInput";
 import { useRouter } from "next/navigation";
+import SavedFood from "./components/SavedFood";
+import AddNutritionForm from "./components/AddNutritionForm";
 
 export default function Page() {
   const router = useRouter();
   const [showFoodList, setShowFoodList] = useState(false);
   const [foodList, setFoodList] = useState<Food[]>([]);
   const [selectedFood, setSelectedFood] = useState<null | Food>(null);
-  const { handleSubmit, setValue, watch, control } = useForm({
+  const { handleSubmit, setValue, control } = useForm({
     resolver: yupResolver(CreateMealSchema),
     mode: "onChange",
   });
@@ -60,99 +58,19 @@ export default function Page() {
   return (
     <section>
       {!showFoodList ? (
-        <form
+        <AddNutritionForm
           onSubmit={handleSubmit(addNutrition)}
-          className="flex flex-col gap-6 pt-24"
-        >
-          <h1 className="text-5xl">Create meal</h1>
-          <div className="flex gap-5 items-center">
-            <ControlledInput
-              control={control}
-              name="foodName"
-              disabled={!!selectedFood}
-              label="Meal name"
-              placeholder=" "
-              type="text"
-            />
-
-            {!selectedFood ? (
-              <Button
-                className=""
-                size="lg"
-                color="primary"
-                onClick={() => setShowFoodList(true)}
-              >
-                Choose from list
-              </Button>
-            ) : (
-              <Button
-                className=""
-                size="lg"
-                color="danger"
-                onClick={resetSelectedFood}
-              >
-                Clear
-              </Button>
-            )}
-          </div>
-          <ControlledInput
-            control={control}
-            name="energy"
-            disabled={!!selectedFood}
-            label="Product energy"
-            placeholder=" "
-            type="number"
-          />
-          <div className="flex gap-4">
-            <ControlledInput
-              control={control}
-              name="proteins"
-              disabled={!!selectedFood}
-              label="Proteins"
-              placeholder=" "
-              type="number"
-            />
-            <ControlledInput
-              control={control}
-              name="fats"
-              disabled={!!selectedFood}
-              label="Fats"
-              placeholder=" "
-              type="number"
-            />
-            <ControlledInput
-              control={control}
-              name="carbohydrates"
-              disabled={!!selectedFood}
-              label="Carbohydrates"
-              placeholder=" "
-              type="number"
-            />
-          </div>
-          <ControlledInput
-            control={control}
-            name="amount"
-            label="Amount"
-            type="number"
-          />
-          <Button color="success" type="submit" variant="shadow">
-            Save
-          </Button>
-        </form>
+          control={control}
+          resetSelectedFood={resetSelectedFood}
+          selectedFood={selectedFood}
+          setShowFoodList={setShowFoodList}
+        />
       ) : (
-        <div>
-          <Input label="Search by name" />
-          <FoodList foodList={foodList} setFood={setFoodFromList} />
-          <Button
-            size="lg"
-            color="primary"
-            variant="shadow"
-            className="w-full mb-auto"
-            onClick={() => setShowFoodList(false)}
-          >
-            Go back
-          </Button>
-        </div>
+        <SavedFood
+          foodList={foodList}
+          setFood={setFoodFromList}
+          setShowFoodList={setShowFoodList}
+        />
       )}
     </section>
   );

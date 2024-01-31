@@ -1,7 +1,7 @@
 import NutritionTable from "@/components/NutritionTable";
 import TodayNutritionStats from "@/components/TodayNutritionStats";
-import { getDailyNutritionData } from "@/lib/db/nutrition";
-import { getCurrentUser } from "@/lib/db/user";
+import { getDailyNutritionData } from "@/sevices/db/nutrition";
+import { getCurrentUser } from "@/sevices/db/user";
 import { Button } from "@nextui-org/button";
 
 export default async function Page() {

@@ -2,7 +2,7 @@ import { Button } from "@nextui-org/button";
 import React from "react";
 import DayCaloriesCounter from "../DayCaloriesCounter";
 import Link from "next/link";
-import { getDailyNutritionData } from "@/lib/db/nutrition";
+import { getDailyNutritionData } from "@/sevices/db/nutrition";
 import { User } from "@prisma/client";
 
 type PropTypes = {

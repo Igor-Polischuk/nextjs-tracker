@@ -1,7 +1,7 @@
 import React from "react";
 import MealItem from "./MealItem";
 import { ScrollShadow } from "@nextui-org/scroll-shadow";
-import { getDailyNutritionData } from "@/lib/db/nutrition";
+import { getDailyNutritionData } from "@/sevices/db/nutrition";
 import {User } from "@prisma/client";
 
 type PropTypes = {

@@ -1,8 +1,8 @@
 import ParamsCard from "@/components/ParamCard";
 import TodayNutritionStats from "@/components/TodayNutritionStats";
-import { getBMI, getUserBmr } from "@/lib/body-params";
-import { getDailyNutritionData } from "@/lib/db/nutrition";
-import { getCurrentUser } from "@/lib/db/user";
+import { getBMI, getUserBmr } from "@/sevices/body-params";
+import { getDailyNutritionData } from "@/sevices/db/nutrition";
+import { getCurrentUser } from "@/sevices/db/user";
 
 export default async function Home() {
   const user = await getCurrentUser()
