@@ -5,6 +5,7 @@ import { Card, CardBody, CardHeader } from "@nextui-org/card";
 import { Input } from "@nextui-org/input";
 import React, { FormEvent, useState } from "react";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 export default function Page() {
   const [errorMessage, setError] = useState("");
@@ -44,7 +45,7 @@ export default function Page() {
   }
 
   return (
-    <div className="flex justify-center items-center max-h-screen">
+    <div className="flex flex-col gap-5 justify-center items-center max-h-screen">
       <Card>
         <CardHeader className="w-screen max-w-md">
           <h1>Sign in</h1>
@@ -68,6 +69,12 @@ export default function Page() {
           </form>
         </CardBody>
       </Card>
+      <Link
+        className="text-sky-500 opacity-75 font-light text-sm"
+        href="/sign-up"
+      >
+        Don`t have an account?
+      </Link>
     </div>
   );
 }
