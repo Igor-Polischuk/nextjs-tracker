@@ -6,14 +6,19 @@ export type SignUpUser = {
   lastName: string;
   username: string;
   password: string;
-  sex: string;
-  activityLevel: string;
+  sex: $Enums.Sex;
+  activityLevel: $Enums.ActivityLevel;
   height: number;
   weight: number;
   age: number;
 };
 
-export const CreateUserSchema: yup.SchemaOf<SignUpUser> = yup.object({
+export type SignUpUserForm = Omit<SignUpUser, "sex" | "activityLevel"> & {
+  sex: string;
+  activityLevel: string;
+};
+
+export const CreateUserSchema: yup.SchemaOf<SignUpUserForm> = yup.object({
   firstName: yup
     .string()
     .min(2, "First name must be at least 2 characters")

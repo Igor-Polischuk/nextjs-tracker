@@ -3,12 +3,15 @@ import Credentials from "next-auth/providers/credentials";
 import { authConfig } from "./auth.config";
 import bcrypt from "bcrypt";
 import * as yup from "yup";
-import { getUserByUsername } from "./sevices/db/user";
+import { createUser, getUserByUsername } from "./sevices/db/user";
+import { SignUpUser } from "@/app/(auth)/sign-up/schema";
+import { AppError } from "./sevices/AppError";
 
 export const { auth, signIn, signOut } = NextAuth({
   ...authConfig,
   providers: [
     Credentials({
+
       async authorize(credentials) {
         const isValid = await yup
           .object({ username: yup.string(), password: yup.string().min(6) })
@@ -20,7 +23,7 @@ export const { auth, signIn, signOut } = NextAuth({
         }
         const { username, password } = credentials as Record<string, string>;
         const user = await getUserByUsername(username);
-        console.log(isValid, credentials, user);
+
         if (!user) return null;
         const newUser = { ...user, id: user.id.toString() };
 
@@ -33,3 +36,20 @@ export const { auth, signIn, signOut } = NextAuth({
     }),
   ],
 });
+
+export const signUp = async (userData: SignUpUser) => {
+  const usernameAlreadyExistInDb = await getUserByUsername(userData.username);
+
+  if (usernameAlreadyExistInDb) {
+    throw new AppError({
+      message: "Username already taken",
+      type: "usernameTaken",
+    });
+  }
+
+  const password = await bcrypt.hash(userData.password, 10);
+
+  const user = await createUser({ ...userData, password });
+
+  return user;
+};

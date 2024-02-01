@@ -10,7 +10,6 @@ export async function POST(req: Request, res: Response) {
   try {
     await addNutrition({ ...data, user: currentUser });
   } catch (error) {
-    console.log(error)
     return NextResponse.json({ success: false, error });
   }
 

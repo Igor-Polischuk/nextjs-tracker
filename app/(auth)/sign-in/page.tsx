@@ -40,7 +40,7 @@ export default function Page() {
       return;
     }
 
-    router.push("/profile");
+    router.push("/");
   }
 
   return (

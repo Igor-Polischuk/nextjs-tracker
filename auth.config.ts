@@ -4,11 +4,21 @@ export const authConfig = {
   pages: {
     signIn: "/sign-in",
   },
+  session: {
+    strategy: "jwt",
+  },
   callbacks: {
-    authorized({ auth, request: { nextUrl } }) {
+    async session(params) { 
+      if (params.session.user) {
+        params.session.user.id = (params as any).token.sub
+      }
+
+      return params.session;
+    },
+    async authorized({ auth, request: { nextUrl } }) {
       const isLoggedIn = !!auth?.user;
-      if (isLoggedIn) return true;
-      return false;
+
+      return isLoggedIn;
     },
   },
   providers: [], // Add providers with an empty array for now
