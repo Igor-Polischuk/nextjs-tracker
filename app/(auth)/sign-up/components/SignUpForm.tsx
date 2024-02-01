@@ -6,10 +6,12 @@ import { useForm } from "react-hook-form";
 import UserCredentialsForm from "./UserCredentialsForm";
 import UserParams from "./UserParams";
 import { yupResolver } from "@hookform/resolvers/yup/dist/yup";
-import { CreateUserSchema, SignUpUser } from "../schema";
+import { CreateUserSchema, SignUpUserForm } from "../schema";
 import { $Enums } from "@prisma/client";
+import { useRouter } from "next/navigation";
 
 export default function SignUpForm() {
+  const router = useRouter();
   const signUpForm = useForm({
     resolver: yupResolver(CreateUserSchema),
     mode: "onChange",
@@ -17,8 +19,6 @@ export default function SignUpForm() {
       sex: $Enums.Sex.MALE,
     },
   });
-
-  // console.log(signUpForm.watch());
 
   const setSex = (sex: string) => {
     signUpForm.setValue("sex", sex);
@@ -53,10 +53,19 @@ export default function SignUpForm() {
       ),
     },
   ];
-  console.log(signUpForm.formState.errors);
-  const registerUser = (userData: SignUpUser) => {
-    console.log(signUpForm.formState.isValid);
-    console.log(userData);
+
+  const registerUser = async (userData: SignUpUserForm) => {
+    const response = await fetch("/api/auth/sign-up", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(userData),
+    });
+
+    if (!response.ok) {
+      return;
+    }
+
+    router.push("/sign-in");
   };
 
   return (
