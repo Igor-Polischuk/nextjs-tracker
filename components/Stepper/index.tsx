@@ -2,7 +2,7 @@
 
 import { Button } from "@nextui-org/button";
 import { Card, CardBody, CardFooter, CardHeader } from "@nextui-org/card";
-import React, { useState } from "react";
+import React, { ComponentProps, useState } from "react";
 import { clsx } from "clsx";
 
 export type StepperPage = {
@@ -13,9 +13,11 @@ type PropTypes = {
   pages: StepperPage[];
   title?: ((currentPage: number) => string) | string;
   onFinish: () => void;
+  finishButtonText?: string;
+  finishButtonProps?: ComponentProps<typeof Button>
 };
 
-export default function Stepper({ pages, onFinish, title }: PropTypes) {
+export default function Stepper({ pages, onFinish, title, ...rest }: PropTypes) {
   const totalPages = pages.length;
   const [currentPage, setCurrentPage] = useState(0);
   const isLastPage = currentPage + 1 === totalPages;
@@ -67,8 +69,9 @@ export default function Stepper({ pages, onFinish, title }: PropTypes) {
           fullWidth
           variant="shadow"
           color="primary"
+          {...rest.finishButtonProps}
         >
-          Finish
+          {rest.finishButtonText || 'Finish'}
         </Button>
       </CardFooter>
     </Card>

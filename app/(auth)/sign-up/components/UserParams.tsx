@@ -15,11 +15,21 @@ const activityLevelSelectItems = Object.keys(ActivityLevel).map((key) => {
 
 type PropTypes = {
   control: Control<any>;
+  setSex: (sex: string) => void;
+  setActivityLevel: (activityLevel: string) => void;
+  errors: Record<string, { message: string }>;
+  trigger: (field: string) => Promise<boolean>
 };
 
-export default function UserParams({ control }: PropTypes) {
-  const [sex, setSex] = useState($Enums.Sex.MALE);
-  console.log(sex);
+export default function UserParams({
+  control,
+  setSex,
+  setActivityLevel,
+  errors,
+  trigger,
+}: PropTypes) {
+  const [sex, setSexValue] = useState($Enums.Sex.MALE);
+
   const items = [
     {
       title: "Male",
@@ -36,8 +46,12 @@ export default function UserParams({ control }: PropTypes) {
         <div className="flex flex-col">
           Sex:
           <RadioTabs
+            aria-label="sex"
             items={items}
-            setValue={setSex}
+            setValue={(value) => {
+              setSexValue(value)
+              setSex(value)
+            }}
             value={sex}
             color="primary"
           />
@@ -45,9 +59,16 @@ export default function UserParams({ control }: PropTypes) {
         <div className="flex flex-col w-full">
           Activity level:
           <Select
+            aria-label="activity level"
             size="sm"
             placeholder="Select your activity level"
             className="w-full"
+            color={errors.activityLevel ? "danger" : "default"}
+            errorMessage={errors.activityLevel?.message}
+            onChange={(e) => {
+              setActivityLevel(e.target.value);
+              trigger('activityLevel')
+            }}
             renderValue={(items) => {
               return items.map((item) => (
                 <p key={item.key} className="capitalize">
@@ -70,22 +91,31 @@ export default function UserParams({ control }: PropTypes) {
       </div>
       <div className="flex flex-col gap-5">
         <ControlledInput
+          aria-label="Height"
           control={control}
           name="height"
           label="Height in cm"
           type="number"
+          color={errors.height ? "danger" : "default"}
+          errorMessage={errors.height?.message}
         />
         <ControlledInput
+          aria-label="weight"
           control={control}
           name="weight"
           label="Weight in kg"
           type="number"
+          color={errors.weight ? "danger" : "default"}
+          errorMessage={errors.weight?.message}
         />
         <ControlledInput
           control={control}
+          aria-label="age"
           name="age"
           label="Age"
           type="number"
+          color={errors.age ? "danger" : "default"}
+          errorMessage={errors.age?.message}
         />
       </div>
     </div>
