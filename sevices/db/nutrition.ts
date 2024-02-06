@@ -42,7 +42,14 @@ export async function getDailyNutritionData(day: Date, userId: number) {
     },
   });
 
-  return data;
+  return data.map((item) => ({
+    ...item,
+    carbohydrates: Math.round(item.food.carbohydrates),
+    calories: Math.round(item.food.calories),
+    fats: Math.round(item.food.fats),
+    proteins: Math.round(item.food.proteins),
+    amount: Math.round(item.food.proteins),
+  }));
 }
 
 export async function getFoodList(query?: string, take = 10) {
@@ -76,7 +83,7 @@ export const addNutrition = async (params: AddNutritionParams) => {
     },
   });
 
-  revalidatePath('/diet', 'page')
+  revalidatePath("/diet", "page");
   return nutritionItem;
 };
 
