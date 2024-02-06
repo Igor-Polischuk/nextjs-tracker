@@ -1,10 +1,18 @@
-import { User } from "@prisma/client";
+import { Food, Nutrition, User } from "@prisma/client";
 import { prisma } from ".";
 import { revalidatePath } from "next/cache";
 
 export type AddNutritionParams = {
   user: User;
   foodName: string;
+  energy: number;
+  proteins: number;
+  fats: number;
+  carbohydrates: number;
+  amount: number;
+};
+
+type TotalReturnType = {
   energy: number;
   proteins: number;
   fats: number;
@@ -50,6 +58,57 @@ export async function getDailyNutritionData(day: Date, userId: number) {
     proteins: Math.round(item.food.proteins),
     amount: Math.round(item.food.proteins),
   }));
+}
+
+export async function getNutritionByDays(userId: number) {
+  const nutrition = await prisma.nutrition.findMany({
+    where: {
+      userId,
+    },
+    orderBy: {
+      date: "asc",
+    },
+    include: {
+      food: true,
+    },
+  });
+
+  const groupedByDate = nutrition.reduce<
+    Record<string, (Nutrition & { food: Food })[]>
+  >((groupedByDate, item) => {
+    const itemDate = new Date(item.date);
+    const dateYMD = itemDate.toISOString().split("T")[0];
+    if (!groupedByDate[dateYMD]) {
+      groupedByDate[dateYMD] = [];
+    }
+    groupedByDate[dateYMD] = [...groupedByDate[dateYMD], item];
+    return groupedByDate;
+  }, {});
+
+  return groupedByDate;
+}
+
+export function calculateNutritionTotal(
+  nutrition: (Nutrition & { food: Food })[]
+) {
+  return nutrition.reduce<TotalReturnType>(
+    (totalObj, current) => {
+      return {
+        energy: totalObj.energy + current.food.calories,
+        proteins: totalObj.proteins + current.food.proteins,
+        fats: totalObj.fats + current.food.fats,
+        carbohydrates: totalObj.carbohydrates + current.food.carbohydrates,
+        amount: totalObj.amount + current.amount,
+      };
+    },
+    {
+      energy: 0,
+      proteins: 0,
+      fats: 0,
+      carbohydrates: 0,
+      amount: 0,
+    }
+  );
 }
 
 export async function getFoodList(query?: string, take = 10) {
