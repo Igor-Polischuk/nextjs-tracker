@@ -19,7 +19,7 @@ export default function Page() {
     mode: "onChange",
   });
   useEffect(() => {
-    fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/food`)
+    fetch(`/api/food`)
       .then((res) => res.json())
       .then(setFoodList);
   }, []);
@@ -44,7 +44,7 @@ export default function Page() {
   };
 
   const addNutrition = async (data: CreateMealForm) => {
-    await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/nutrition`, {
+    await fetch(`/api/nutrition`, {
       method: "POST",
       body: JSON.stringify(data),
       headers: {
@@ -53,6 +53,7 @@ export default function Page() {
     });
 
     router.push("/diet");
+    router.refresh();
   };
 
   return (

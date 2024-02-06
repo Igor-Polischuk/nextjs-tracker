@@ -2,14 +2,12 @@ import React from "react";
 import MealItem from "./MealItem";
 import { ScrollShadow } from "@nextui-org/scroll-shadow";
 import { getDailyNutritionData } from "@/sevices/db/nutrition";
-import {User } from "@prisma/client";
 
 type PropTypes = {
-  user: User
   nutritionData: Awaited<ReturnType<typeof getDailyNutritionData>>
 }
 
-export default function NutritionTable({user, nutritionData}: PropTypes) {
+export default function NutritionTable({nutritionData}: PropTypes) {
 
   const todayMealsData = nutritionData.map(mealData => {
     return {
