@@ -20,24 +20,30 @@ model User {
   weight           Float
   height           Float
   goal             Goal               @default(MAINTENACE)
-  UserWeigtDynamic UserWeigtDynamic[]
+  UserWeigtDynamic UserWeightDynamic[]
   sex              Sex
   age              Int
   activityLevel    ActivityLevel
+  workout          Workout[]
+  programs         TrainingProgram[]
+  createdAt        DateTime           @default(now())
+  updatedAt        DateTime?          @updatedAt
 }
 
-model UserWeigtDynamic {
-  id     Int      @id @default(autoincrement())
-  date   DateTime
-  weight Float
-  userId User     @relation(fields: [id], references: [id])
+model UserWeightDynamic {
+  id        Int      @id @default(autoincrement())
+  date      DateTime
+  weight    Float
+  userId    User     @relation(fields: [id], references: [id])
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 }
 
 model Food {
   id            Int         @id @default(autoincrement())
   createdAt     DateTime    @default(now())
   updatedAt     DateTime    @updatedAt
-  foodName      String
+  foodName      String      @unique
   calories      Int
   proteins      Float
   fats          Float
@@ -57,6 +63,70 @@ model Nutrition {
   amount    Int
 }
 
+model TrainingProgram {
+  id               String             @id @default(uuid())
+  ProgramExsersise ProgramExercises[]
+  User             User?              @relation(fields: [userId], references: [id])
+  userId           Int?
+  createdAt        DateTime           @default(now())
+  updatedAt        DateTime           @updatedAt
+}
+
+model ProgramExercises {
+  id          String                @id @default(uuid())
+  name        String
+  type        TrainingActivityType
+  program     TrainingProgram       @relation(fields: [programId], references: [id])
+  programId   String
+  description String?
+  sets        ProgramExercisesSet[]
+  days        WeekDay[]
+  createdAt   DateTime              @default(now())
+  updatedAt   DateTime              @updatedAt
+}
+
+model ProgramExercisesSet {
+  id                String           @id @default(uuid())
+  programExercise   ProgramExercises @relation(fields: [programExerciseId], references: [id])
+  programExerciseId String
+  reps              Int
+  weight            Float?
+  createdAt         DateTime         @default(now())
+  updatedAt         DateTime         @updatedAt
+}
+
+model Workout {
+  id        String             @id @default(uuid())
+  user      User               @relation(fields: [userId], references: [id])
+  userId    Int
+  date      DateTime
+  totalTime Int
+  exercises WorkoutExercises[]
+  createdAt DateTime           @default(now())
+  updatedAt DateTime           @updatedAt
+}
+
+model WorkoutExercises {
+  id        String               @id @default(uuid())
+  workout   Workout              @relation(fields: [workoutId], references: [id])
+  workoutId String
+  name      String
+  type      TrainingActivityType
+  sets      WorkoutExrcisesSet[]
+  createdAt DateTime             @default(now())
+  updatedAt DateTime             @updatedAt
+}
+
+model WorkoutExrcisesSet {
+  id                String           @id @default(uuid())
+  workoutExercise   WorkoutExercises @relation(fields: [workoutExerciseId], references: [id])
+  workoutExerciseId String
+  reps              Int
+  weight            Float
+  createdAt         DateTime         @default(now())
+  updatedAt         DateTime         @updatedAt
+}
+
 enum Goal {
   BULKING
   CUTTING
@@ -74,4 +144,19 @@ enum ActivityLevel {
   MODERATE_EXERCISE     @map("1.55")
   VERY_ACTIVE           @map("1.725")
   EXTRA_ACTIVE          @map("1.9")
+}
+
+enum TrainingActivityType {
+  REST
+  EXESRSISE
+}
+
+enum WeekDay {
+  MONDAY
+  TUESDAY
+  WEDNESDAY
+  THURSDAY
+  FRIDAY
+  SATURDAY
+  SUNDAY
 }
