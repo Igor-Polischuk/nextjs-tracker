@@ -11,23 +11,23 @@ datasource db {
 }
 
 model User {
-  id               Int                @id @default(autoincrement())
+  id               Int                 @id @default(autoincrement())
   firstName        String
   lastName         String
-  username         String             @unique()
+  username         String              @unique()
   password         String
   Nutrition        Nutrition[]
   weight           Float
   height           Float
-  goal             Goal               @default(MAINTENACE)
+  goal             Goal                @default(MAINTENACE)
   UserWeigtDynamic UserWeightDynamic[]
   sex              Sex
   age              Int
   activityLevel    ActivityLevel
   workout          Workout[]
   programs         TrainingProgram[]
-  createdAt        DateTime           @default(now())
-  updatedAt        DateTime?          @updatedAt
+  createdAt        DateTime            @default(now())
+  updatedAt        DateTime?           @updatedAt
 }
 
 model UserWeightDynamic {
@@ -64,15 +64,17 @@ model Nutrition {
 }
 
 model TrainingProgram {
-  id               String             @id @default(uuid())
-  ProgramExsersise ProgramExercises[]
-  User             User?              @relation(fields: [userId], references: [id])
-  userId           Int?
-  createdAt        DateTime           @default(now())
-  updatedAt        DateTime           @updatedAt
+  id              String            @id @default(uuid())
+  ProgramExercise ProgramExercise[]
+  title           String
+  description     String
+  User            User              @relation(fields: [userId], references: [id])
+  userId          Int
+  createdAt       DateTime          @default(now())
+  updatedAt       DateTime          @updatedAt
 }
 
-model ProgramExercises {
+model ProgramExercise {
   id          String                @id @default(uuid())
   name        String
   type        TrainingActivityType
@@ -80,19 +82,19 @@ model ProgramExercises {
   programId   String
   description String?
   sets        ProgramExercisesSet[]
-  days        WeekDay[]
+  day         String
   createdAt   DateTime              @default(now())
   updatedAt   DateTime              @updatedAt
 }
 
 model ProgramExercisesSet {
-  id                String           @id @default(uuid())
-  programExercise   ProgramExercises @relation(fields: [programExerciseId], references: [id])
+  id                String          @id @default(uuid())
+  programExercise   ProgramExercise @relation(fields: [programExerciseId], references: [id])
   programExerciseId String
   reps              Int
   weight            Float?
-  createdAt         DateTime         @default(now())
-  updatedAt         DateTime         @updatedAt
+  createdAt         DateTime        @default(now())
+  updatedAt         DateTime        @updatedAt
 }
 
 model Workout {
@@ -148,7 +150,7 @@ enum ActivityLevel {
 
 enum TrainingActivityType {
   REST
-  EXESRSISE
+  EXERCISE
 }
 
 enum WeekDay {

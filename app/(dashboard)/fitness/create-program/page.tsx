@@ -8,7 +8,7 @@ import { Button } from "@nextui-org/button";
 import { useRouter } from "next/navigation";
 
 export default function Page() {
-  const router = useRouter()
+  const router = useRouter();
   const [programName, setProgramName] = useState("");
   const [programDesc, setProgramDesc] = useState("");
   const [programTrainingByDays, setProgramTrainingByDays] = useState<
@@ -43,15 +43,24 @@ export default function Page() {
     ]);
   };
 
-  const onTrainingSave = () => {
+  const onTrainingSave = async () => {
     const trainProgram = {
       name: programName,
       description: programDesc,
-      programExercises: programTrainingByDays
-    }
+      programExercises: programTrainingByDays,
+    };
 
-    console.log(trainProgram)
-  }
+    await fetch(`/api/training-program`, {
+      method: "POST",
+      body: JSON.stringify(trainProgram),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+
+    router.push("/fitness");
+    // router.refresh();
+  };
 
   return (
     <div>
