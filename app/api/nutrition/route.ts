@@ -1,6 +1,6 @@
 import { CreateMealForm } from "@/app/(dashboard)/diet/add-meal/schema";
-import { addNutrition } from "@/sevices/db/nutrition";
-import { getCurrentUser } from "@/sevices/db/user";
+import { addNutrition } from "@/services/db/nutrition";
+import { getCurrentUser } from "@/services/db/user";
 import { NextResponse } from "next/server";
 
 export async function POST(req: Request, res: Response) {

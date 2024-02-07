@@ -1,7 +1,7 @@
 /* eslint-disable react/no-unescaped-entities */
-import { getPFC, getUserCaloriesNorm } from "@/sevices/body-params";
-import { getDailyNutritionData } from "@/sevices/db/nutrition";
-import { calculateNutrition } from "@/sevices/nutrition";
+import { getPFC, getUserCaloriesNorm } from "@/services/body-params";
+import { getDailyNutritionData } from "@/services/db/nutrition";
+import { calculateNutrition } from "@/services/nutrition";
 import { User } from "@prisma/client";
 import React from "react";
 

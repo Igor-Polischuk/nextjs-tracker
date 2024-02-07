@@ -1,8 +1,8 @@
 import {
   ProgramData,
   createTrainingProgram,
-} from "@/sevices/db/training-program";
-import { getCurrentUser } from "@/sevices/db/user";
+} from "@/services/db/training-program";
+import { getCurrentUser } from "@/services/db/user";
 import { NextResponse } from "next/server";
 
 export async function POST(req: Request, res: Response) {

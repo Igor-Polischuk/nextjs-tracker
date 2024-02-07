@@ -3,9 +3,9 @@ import Credentials from "next-auth/providers/credentials";
 import { authConfig } from "./auth.config";
 import bcrypt from "bcrypt";
 import * as yup from "yup";
-import { createUser, getUserByUsername } from "./sevices/db/user";
+import { createUser, getUserByUsername } from "./services/db/user";
 import { SignUpUser } from "@/app/(auth)/sign-up/schema";
-import { AppError } from "./sevices/AppError";
+import { AppError } from "./services/AppError";
 
 export const { auth, signIn, signOut } = NextAuth({
   ...authConfig,

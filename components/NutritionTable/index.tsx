@@ -2,7 +2,7 @@
 import React from "react";
 import MealItem from "./MealItem";
 import { ScrollShadow } from "@nextui-org/scroll-shadow";
-import { getDailyNutritionData } from "@/sevices/db/nutrition";
+import { getDailyNutritionData } from "@/services/db/nutrition";
 
 type PropTypes = {
   nutritionData: Awaited<ReturnType<typeof getDailyNutritionData>>

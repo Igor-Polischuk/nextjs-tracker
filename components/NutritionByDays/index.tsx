@@ -2,7 +2,7 @@ import React from "react";
 import {
   calculateNutritionTotal,
   getNutritionByDays,
-} from "@/sevices/db/nutrition";
+} from "@/services/db/nutrition";
 
 type PropTypes = {
   nutritionByDate: Awaited<ReturnType<typeof getNutritionByDays>>;

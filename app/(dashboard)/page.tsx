@@ -1,9 +1,9 @@
 import LogOutButton from "@/components/LogOut";
 import ParamsCard from "@/components/ParamCard";
 import TodayNutritionStats from "@/components/TodayNutritionStats";
-import { getBMI, getUserBmr } from "@/sevices/body-params";
-import { getDailyNutritionData } from "@/sevices/db/nutrition";
-import { getCurrentUser } from "@/sevices/db/user";
+import { getBMI, getUserBmr } from "@/services/body-params";
+import { getDailyNutritionData } from "@/services/db/nutrition";
+import { getCurrentUser } from "@/services/db/user";
 
 export default async function Home() {
   const user = await getCurrentUser();
