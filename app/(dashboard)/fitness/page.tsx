@@ -12,9 +12,7 @@ export default function Home() {
         <h2 className="text-3xl mb-6 mt-10">My program</h2>
         <div className="flex flex-col justify-center items-center">
           <p>You haven't created training program yet</p>
-          <Link href="/create-program">
-            <Button variant="light">Create program</Button>
-          </Link>
+          <Link href="/fitness/create-program">Create program</Link>
         </div>
       </div>
       <div>
@@ -48,12 +46,19 @@ export default function Home() {
             </div>
             <div className="min-w-full flex justify-stretch">
               <Link className="text-primary w-full" href={"/workout/id"}>
-                <Button className="text-primary" fullWidth variant="light">See details</Button>
+                <Button className="text-primary" fullWidth variant="light">
+                  See details
+                </Button>
               </Link>
             </div>
           </div>
         </div>
-        <Link href='workouts' className="text-primary flex w-full justify-center">See all</Link>
+        <Link
+          href="workouts"
+          className="text-primary flex w-full justify-center"
+        >
+          See all
+        </Link>
       </div>
     </div>
   );
