@@ -1,0 +1,515 @@
+[
+  {
+    "name": "Barbell Bench Press",
+    "instructions": "Lie back on a flat bench. Using a medium width grip (a grip that creates a 90-degree angle in the middle of the movement between the forearms and the upper arms), lift the bar from the rack and hold it straight over you with your arms locked. This will be your starting position.\\nFrom the starting position, breathe in and begin coming down slowly until the bar touches your middle chest.\\nAfter a brief pause, push the bar back to the starting position as you breathe out. Focus on pushing the bar using your chest muscles. Lock your arms and squeeze your chest in the contracted position at the top of the motion, hold for a second and then start coming down slowly again. Tip: Ideally, lowering the weight should take about twice as long as raising it.\\nRepeat the movement for the prescribed amount of repetitions.\\nWhen you are done, place the bar back in the rack.",
+    "force": "push",
+    "primaryMuscles": ["chest"],
+    "secondaryMuscles": ["shoulders", "triceps"],
+    "equipment": "barbell",
+    "category": "strength",
+    "videoUrl": "https://www.youtube.com/watch?v=4Y2ZdHCOXok&ab_channel=JeremyEthier",
+    "images": [
+      "https://fitwill.app/_next/image?url=https%3A%2F%2Ffitwill.app%2Fapi%2Fimage%2F0025&w=2048&q=75"
+    ]
+  },
+  {
+    "name": "Barbell Incline Bench Press",
+    "instructions": "Lie back on an incline bench. Using a medium-width grip (a grip that creates a 90-degree angle in the middle of the movement between the forearms and the upper arms), lift the bar from the rack and hold it straight over you with your arms locked. This will be your starting position.\\nAs you breathe in, come down slowly until you feel the bar on you upper chest.\\nAfter a second pause, bring the bar back to the starting position as you breathe out and push the bar using your chest muscles. Lock your arms in the contracted position, squeeze your chest, hold for a second and then start coming down slowly again. Tip: it should take at least twice as long to go down than to come up.\\nRepeat the movement for the prescribed amount of repetitions.\\nWhen you are done, place the bar back in the rack.",
+    "force": "push",
+    "primaryMuscles": ["chest"],
+    "secondaryMuscles": ["shoulders", "triceps"],
+    "equipment": "barbell",
+    "category": "strength",
+    "videoUrl": "https://www.youtube.com/watch?v=SrqOu55lrYU&ab_channel=ScottHermanFitness",
+    "images": [
+      "https://fitwill.app/_next/image?url=https%3A%2F%2Ffitwill.app%2Fapi%2Fimage%2F0025&w=2048&q=75"
+    ]
+  },
+  {
+    "name": "Dumbbell Bench Press",
+    "instructions": "Lie down on a flat bench with a dumbbell in each hand resting on top of your thighs. The palms of your hands will be facing each other.\\nThen, using your thighs to help raise the dumbbells up, lift the dumbbells one at a time so that you can hold them in front of you at shoulder width.\\nOnce at shoulder width, rotate your wrists forward so that the palms of your hands are facing away from you. The dumbbells should be just to the sides of your chest, with your upper arm and forearm creating a 90 degree angle. Be sure to maintain full control of the dumbbells at all times. This will be your starting position.\\nThen, as you breathe out, use your chest to push the dumbbells up. Lock your arms at the top of the lift and squeeze your chest, hold force: 'push'",
+    "force": "push",
+    "primaryMuscles": ["chest"],
+    "secondaryMuscles": ["shoulders", "triceps"],
+    "equipment": "dumbbell",
+    "category": "strength",
+    "videoUrl": "https://www.youtube.com/watch?v=VmB1G1K7v94&ab_channel=ScottHermanFitness",
+    "images": [
+      "https://weighttraining.guide/wp-content/uploads/2023/07/Reverse-grip-dumbbell-bench-press.png"
+    ]
+  },
+  {
+    "name": "Dumbbell Incline Bench Press",
+    "force": "push",
+    "primaryMuscles": ["chest"],
+    "secondaryMuscles": ["shoulders", "triceps"],
+    "equipment": "dumbbell",
+    "category": "strength",
+    "videoUrl": "https://www.youtube.com/watch?v=8iPEnn-ltC8&ab_channel=ScottHermanFitness",
+    "images": [
+      "https://weighttraining.guide/wp-content/uploads/2016/11/incline-dumbbell-bench-press-resized.png"
+    ]
+  },
+  {
+    "name": "Pull Ups",
+    "force": "pull",
+    "primaryMuscles": ["lats"],
+    "secondaryMuscles": ["biceps", "middle back"],
+    "equipment": "other",
+    "category": "strength",
+    "images": [
+      "https://i.pinimg.com/474x/1d/39/59/1d395978de854c8f43774403b79060d8.jpg"
+    ]
+  },
+  {
+    "name": "Anti-Gravity Press",
+    "force": "push",
+    "primaryMuscles": ["shoulders"],
+    "secondaryMuscles": ["middle back", "traps", "triceps"],
+    "equipment": "barbell",
+    "category": "strength",
+    "images": [
+      "https://www.mybodycreator.com/content/files/2023/05/25/417_M.png"
+    ]
+  },
+  {
+    "name": "Barbell Curl",
+    "force": "pull",
+    "primaryMuscles": ["biceps"],
+    "secondaryMuscles": ["forearms"],
+    "equipment": "barbell",
+    "category": "strength",
+    "images": [
+      "https://weighttraining.guide/wp-content/uploads/2016/05/barbell-curl-resized.png"
+    ]
+  },
+  {
+    "name": "Barbell Curls Lying Against An Incline",
+    "force": "pull",
+    "primaryMuscles": ["biceps"],
+    "secondaryMuscles": [],
+    "equipment": "barbell",
+    "category": "strength",
+    "images": [
+      "https://miro.medium.com/v2/resize:fit:623/0*i7jF5mUnU7o9kCXO.jpg"
+    ]
+  },
+  {
+    "name": "Deadlift",
+    "instructions": "Stand in front of a loaded barbell.\nWhile keeping the back as straight as possible, bend your knees, bend forward and grasp the bar using a medium (shoulder width) overhand grip. This will be the starting position of the exercise. Tip: If it is difficult to hold on to the bar with this grip, alternate your grip or use wrist straps.\nWhile holding the bar, start the lift by pushing with your legs while simultaneously getting your torso to the upright position as you breathe out. In the upright position, stick your chest out and contract the back by bringing the shoulder blades back. Think of how the soldiers in the military look when they are in standing in attention.\nGo back to the starting position by bending at the knees while simultaneously leaning the torso forward at the waist while keeping the back straight. When the weights on the bar touch the floor you are back at the starting position and ready to perform another repetition.\nPerform the amount of repetitions prescribed in the program.",
+    "force": "pull",
+    "primaryMuscles": ["lower back"],
+    "secondaryMuscles": [
+      "calves",
+      "forearms",
+      "glutes",
+      "hamstrings",
+      "lats",
+      "middle back",
+      "quadriceps",
+      "traps"
+    ],
+    "equipment": "barbell",
+    "category": "strength",
+    "images": [
+      "https://weighttraining.guide/wp-content/uploads/2016/05/Barbell-Deadlift-1.png",
+      "https://www.inspireusafoundation.org/wp-content/uploads/2022/02/dumbbell-deadlift-benefits.jpg"
+    ],
+    "videoUrl": "https://www.youtube.com/watch?v=XxWcirHIwVo&ab_channel=JeremyEthier"
+  },
+  {
+    "name": "Barbell Full Squat",
+    "force": "pull",
+    "primaryMuscles": ["quadriceps"],
+    "secondaryMuscles": ["calves", "glutes", "hamstrings", "lower back"],
+    "equipment": "barbell",
+    "category": "strength",
+    "images": [
+      "https://weighttraining.guide/wp-content/uploads/2016/10/barbell-squat-resized-FIXED-2.png",
+      "https://training.fit/wp-content/uploads/2020/03/kniebeugen-langhantel.png"
+    ]
+  },
+  {
+    "name": "Barbell Glute Bridge",
+    "force": "push",
+    "primaryMuscles": ["glutes"],
+    "secondaryMuscles": ["calves", "hamstrings"],
+    "equipment": "barbell",
+    "category": "powerlifting",
+    "images": [
+      "https://weighttraining.guide/wp-content/uploads/2021/08/barbell-glute-bridge.png"
+    ]
+  },
+  {
+    "name": "Barbell Hip Thrust",
+    "force": "push",
+    "primaryMuscles": ["glutes"],
+    "secondaryMuscles": ["calves", "hamstrings"],
+    "equipment": "barbell",
+    "category": "powerlifting",
+    "images": [
+      "https://weighttraining.guide/wp-content/uploads/2017/04/barbell-hip-thrust-resized.png"
+    ]
+  },
+  {
+    "name": "Barbell Rear Delt Row",
+    "force": "pull",
+    "primaryMuscles": ["shoulders"],
+    "secondaryMuscles": ["biceps", "lats", "middle back"],
+    "equipment": "barbell",
+    "category": "powerlifting",
+    "images": [
+      "https://i.pinimg.com/originals/58/63/8d/58638d52c686dd3a154f9a02ef323f1d.jpg",
+      "https://weighttraining.guide/wp-content/uploads/2021/03/Barbell-rear-delt-row.png"
+    ],
+    "videoUrl": "https://www.youtube.com/watch?v=gvBbvB9NKrk&ab_channel=FitnessInstructor"
+  },
+  {
+    "name": "Barbell Seated Calf Raise",
+    "force": "push",
+    "primaryMuscles": ["calves"],
+    "secondaryMuscles": [],
+    "equipment": "barbell",
+    "category": "strength",
+    "images": [
+      "https://fitnessprogramer.com/wp-content/uploads/2021/09/Barbell-Seated-Calf-Raise.gif"
+    ]
+  },
+  {
+    "name": "Barbell Shoulder Press",
+    "force": "push",
+    "primaryMuscles": ["shoulders"],
+    "secondaryMuscles": ["chest", "triceps"],
+    "equipment": "barbell",
+    "category": "strength",
+    "images": [
+      "https://weighttraining.guide/wp-content/uploads/2016/10/seated-barbell-overhead-press-resized.png"
+    ]
+  },
+  {
+    "name": "Barbell Shrug",
+    "force": "pull",
+    "primaryMuscles": ["traps"],
+    "secondaryMuscles": [],
+    "equipment": "barbell",
+    "category": "strength",
+    "images": [
+      "https://cdn.shopify.com/s/files/1/1876/4703/files/shutterstock_421075609_0c8c8758-8e1f-4362-bf4d-951a5439f365_480x480.jpg?v=1636558340"
+    ]
+  },
+  {
+    "name": "Barbell Squat",
+    "force": "push",
+    "primaryMuscles": ["quadriceps"],
+    "secondaryMuscles": ["calves", "glutes", "hamstrings", "lower back"],
+    "equipment": "barbell",
+    "category": "strength",
+    "images": [
+      "https://weighttraining.guide/wp-content/uploads/2016/10/barbell-squat-resized-FIXED-2.png",
+      "https://weighttraining.guide/wp-content/uploads/2017/05/barbell-sumo-squat-resized-new.png"
+    ]
+  },
+  {
+    "name": "Barbell Squat To A Bench",
+    "force": "push",
+    "primaryMuscles": ["quadriceps"],
+    "secondaryMuscles": ["calves", "glutes", "hamstrings", "lower back"],
+    "equipment": "barbell",
+    "category": "strength",
+    "images": [
+      "https://fitnessvolt.com/wp-content/uploads/2023/08/Bench-Squat-Guide.jpg"
+    ]
+  },
+  {
+    "name": "Bent-Arm Barbell Pullover",
+    "force": "pull",
+    "primaryMuscles": ["lats"],
+    "secondaryMuscles": ["chest", "lats", "shoulders", "triceps"],
+    "equipment": "barbell",
+    "category": "strength",
+    "images": [
+      "https://weighttraining.guide/wp-content/uploads/2017/02/barbell-bent-arm-pull-over-resized.png"
+    ]
+  },
+  {
+    "name": "Bent Over Barbell Row",
+    "force": "pull",
+    "instructions": "Holding a barbell with a pronated grip (palms facing down), bend your knees slightly and bring your torso forward, by bending at the waist, while keeping the back straight until it is almost parallel to the floor. Tip: Make sure that you keep the head up. The barbell should hang directly in front of you as your arms hang perpendicular to the floor and your torso. This is your starting position.\nNow, while keeping the torso stationary, breathe out and lift the barbell to you. Keep the elbows close to the body and only use the forearms to hold the weight. At the top contracted position, squeeze the back muscles and hold for a brief pause.\nThen inhale and slowly lower the barbell back to the starting position.\nRepeat for the recommended amount of repetitions.",
+    "primaryMuscles": ["middle back"],
+    "secondaryMuscles": ["biceps", "lats", "shoulders"],
+    "equipment": "barbell",
+    "category": "strength",
+    "images": [
+      "https://fitnessvolt.com/wp-content/uploads/2018/04/bent-over-barbell-row.jpg"
+    ],
+    "videoUrl": "https://www.youtube.com/watch?v=FWJR5Ve8bnQ&ab_channel=MaxEuceda"
+  },
+  {
+    "name": "Alternate Hammer Curl",
+    "force": "pull",
+    "primaryMuscles": ["biceps"],
+    "secondaryMuscles": ["forearms"],
+    "equipment": "dumbbell",
+    "category": "strength",
+    "images": [
+      "https://images.squarespace-cdn.com/content/v1/55e406fbe4b0b03c5e7543ae/1492683665304-XXCOCXXRK73RSQ8IY3NQ/Standing+Alternate+Dumbbell+Biceps+Hammer+Curls"
+    ]
+  },
+  {
+    "name": "Alternate Incline Dumbbell Curl",
+    "force": "pull",
+    "primaryMuscles": ["biceps"],
+    "secondaryMuscles": ["forearms"],
+    "equipment": "dumbbell",
+    "category": "strength",
+    "images": [
+      "https://weighttraining.guide/wp-content/uploads/2017/01/Incline-Dumbbell-Curl-resized.png"
+    ]
+  },
+  {
+    "name": "Alternating Deltoid Raise",
+    "force": "push",
+    "primaryMuscles": ["shoulders"],
+    "secondaryMuscles": [],
+    "equipment": "dumbbell",
+    "category": "strength",
+    "images": [
+      "https://cdn-0.weighttraining.guide/wp-content/uploads/2016/10/Dumbbell-Standing-Alternate-Front-Raise-resized.png?ezimgfmt=ng%3Awebp%2Fngcb4"
+    ]
+  },
+  {
+    "name": "Arnold Dumbbell Press",
+    "force": "push",
+    "primaryMuscles": ["shoulders"],
+    "secondaryMuscles": ["triceps"],
+    "equipment": "dumbbell",
+    "category": "strength",
+    "images": [
+      "https://weighttraining.guide/wp-content/uploads/2016/10/Arnold-press-resized.png"
+    ]
+  },
+  {
+    "name": "Bent-Arm Dumbbell Pullover",
+    "force": "push",
+    "primaryMuscles": ["chest"],
+    "secondaryMuscles": ["lats", "shoulders", "triceps"],
+    "equipment": "dumbbell",
+    "category": "strength",
+    "images": [
+      "https://homegymreview.co.uk/wp-content/uploads/exercises/14441101-Dumbbell-Bent-Arm-Pullover-Hold_Isometric_max-scaled.jpg"
+    ]
+  },
+  {
+    "name": "Bent Over Two-Dumbbell Row",
+    "force": "pull",
+    "primaryMuscles": ["middle back"],
+    "secondaryMuscles": ["biceps", "lats", "shoulders"],
+    "equipment": "dumbbell",
+    "category": "strength",
+    "images": [
+      "https://weighttraining.guide/wp-content/uploads/2017/01/bent-over-two-arm-dumbbell-row-resized.png"
+    ]
+  },
+  {
+    "name": "Calf Raise On A Dumbbell",
+    "force": "push",
+    "primaryMuscles": ["calves"],
+    "secondaryMuscles": [],
+    "equipment": "dumbbell",
+    "category": "strength",
+    "images": [
+      "https://images.squarespace-cdn.com/content/v1/5ffcea9416aee143500ea103/1638439684168-JG2QI867OVRW48INNY1Q/Standing%2BDumbbell%2BCalf%2BRaises.jpeg"
+    ]
+  },
+  {
+    "name": "Close-Grip Dumbbell Press",
+    "force": "push",
+    "primaryMuscles": ["triceps"],
+    "secondaryMuscles": ["chest", "shoulders"],
+    "equipment": "dumbbell",
+    "category": "strength",
+    "images": [
+      "https://tacticaltrainingandconditioning.com/wp-content/uploads/2022/10/134.png",
+      "https://weighttraining.guide/wp-content/uploads/2023/07/Reverse-grip-dumbbell-bench-press.png"
+    ]
+  },
+  {
+    "name": "Concentration Curls",
+    "force": "pull",
+    "primaryMuscles": ["biceps"],
+    "secondaryMuscles": ["forearms"],
+    "equipment": "dumbbell",
+    "category": "strength",
+    "images": [
+      "https://weighttraining.guide/wp-content/uploads/2022/03/Dumbbell-concentration-curl-on-a-stability-ball.png"
+    ]
+  },
+  {
+    "name": "Cross Body Hammer Curl",
+    "force": "pull",
+    "primaryMuscles": ["biceps"],
+    "secondaryMuscles": ["forearms"],
+    "equipment": "dumbbell",
+    "category": "strength",
+    "images": [
+      "https://www.inspireusafoundation.org/wp-content/uploads/2023/06/crossbody-hammer-curl-benefits.png"
+    ]
+  },
+  {
+    "name": "Decline Dumbbell Flyes",
+    "force": "push",
+    "primaryMuscles": ["chest"],
+    "secondaryMuscles": [],
+    "equipment": "dumbbell",
+    "category": "strength",
+    "images": [
+      "https://static.strengthlevel.com/images/illustrations/decline-dumbbell-fly-1000x1000.jpg"
+    ]
+  },
+  {
+    "name": "Dumbbell Flyes",
+    "force": "push",
+    "primaryMuscles": ["chest"],
+    "secondaryMuscles": [],
+    "equipment": "dumbbell",
+    "category": "strength",
+    "images": [
+      "https://www.inspireusafoundation.org/wp-content/uploads/2021/11/dumbbell-chest-flys-1024x497.png"
+    ]
+  },
+  {
+    "name": "Dumbbell Bicep Curl",
+    "force": "pull",
+    "primaryMuscles": ["biceps"],
+    "secondaryMuscles": ["forearms"],
+    "equipment": "dumbbell",
+    "category": "strength",
+    "images": [
+      "https://www.inspireusafoundation.org/wp-content/uploads/2023/04/dumbbell-curl-benefits.png"
+    ]
+  },
+  {
+    "name": "Dumbbell Incline Row",
+    "force": "pull",
+    "primaryMuscles": ["middle back"],
+    "secondaryMuscles": ["biceps", "forearms", "lats", "shoulders"],
+    "equipment": "dumbbell",
+    "category": "strength",
+    "images": [
+      "https://www.mybodycreator.com/content/files/2023/05/28/459_M.png"
+    ]
+  },
+  {
+    "name": "Lunges",
+    "force": "push",
+    "primaryMuscles": ["quadriceps"],
+    "secondaryMuscles": ["calves", "glutes", "hamstrings"],
+    "equipment": "dumbbell",
+    "category": "strength",
+    "images": [
+      "https://weighttraining.guide/wp-content/uploads/2016/10/Dumbbell-Lunge-resized-fixed.png"
+    ]
+  },
+  {
+    "name": "Dumbbell One-Arm Triceps Extension",
+    "force": "push",
+    "primaryMuscles": ["triceps"],
+    "secondaryMuscles": [],
+    "equipment": "dumbbell",
+    "category": "strength",
+    "images": [
+      "https://weighttraining.guide/wp-content/uploads/2022/07/Standing-one-arm-overhead-dumbbell-triceps-extension.png"
+    ]
+  },
+  {
+    "name": "Dumbbell Raise",
+    "force": "push",
+    "primaryMuscles": [
+        "shoulders"
+      ],
+      "secondaryMuscles": [
+      ],
+    "equipment": "dumbbell",
+    "category": "strength",
+    "images": [
+      "https://weighttraining.guide/wp-content/uploads/2016/12/Seated-Dumbbell-Lateral-Raise-resized.png"
+    ]
+  },
+  {
+    "name": "Bulgarian Lunges",
+    "force": "push",
+    "primaryMuscles": [
+        "quadriceps", "glutes"
+      ],
+      "secondaryMuscles": [
+      ],
+    "equipment": "dumbbell",
+    "category": "strength",
+    "images": [
+      "https://weighttraining.guide/wp-content/uploads/2021/10/Bulgarian-split-squat.png",
+      "https://i.pinimg.com/originals/5f/5b/ad/5f5badaac2bb441caa82a2fb5512652e.png"
+    ]
+  },
+  {
+    "name": "Romanian Deadlift",
+    "force": "push",
+    "primaryMuscles": [
+        "glutes", "hamstrings"
+      ],
+      "secondaryMuscles": [
+        "adductors", "core"
+      ],
+    "equipment": "barbell",
+    "category": "strength",
+    "images": [
+      "https://weighttraining.guide/wp-content/uploads/2016/10/Barbell-Romanian-Deadlift.png"
+    ]
+  },
+  {
+    "name": "Romanian Deadlift",
+    "force": "push",
+    "primaryMuscles": [
+        "glutes", "hamstrings"
+      ],
+      "secondaryMuscles": [
+        "adductors", "core"
+      ],
+    "equipment": "barbell",
+    "category": "strength",
+    "images": [
+      "https://weighttraining.guide/wp-content/uploads/2016/10/Barbell-Romanian-Deadlift.png"
+    ]
+  },
+  {
+    "name": "Dips - Chest Version",
+    "force": "push",
+    "primaryMuscles": [
+        "chest"
+      ],
+      "secondaryMuscles": [
+        "shoulders",
+        "triceps"
+      ],
+    "equipment": "other",
+    "category": "strength",
+    "images": [
+      "https://musclemaker.com.au/wp-content/uploads/2020/08/How-to-do-Dips-Chest-Version.jpg"
+    ]
+  },
+  {
+    "name": "Dips - Triceps Version",
+    "force": "push",
+    "primaryMuscles": [
+        "triceps"
+      ],
+      "secondaryMuscles": [
+        "chest",
+        "shoulders"
+      ],
+    "equipment": "other",
+    "category": "strength",
+    "images": [
+      "https://fitnessvolt.com/wp-content/uploads/2021/12/Chest-Dips-vs-Triceps-Dips.jpg"
+    ]
+  }
+]

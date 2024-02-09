@@ -129,6 +129,21 @@ model WorkoutExrcisesSet {
   updatedAt         DateTime         @updatedAt
 }
 
+model Exercises {
+  id               String   @id @default(uuid())
+  name             String
+  instructions     String?
+  videoUrl         String?
+  images           String[]
+  primaryMuscles   String[]
+  secondaryMuscles String[]
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
+  force            String
+  equipment        String
+  category         String
+}
+
 enum Goal {
   BULKING
   CUTTING
