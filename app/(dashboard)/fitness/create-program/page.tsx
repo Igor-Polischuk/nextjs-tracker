@@ -59,7 +59,7 @@ export default function Page() {
     });
 
     router.push("/fitness");
-    // router.refresh();
+    router.refresh();
   };
 
   return (
