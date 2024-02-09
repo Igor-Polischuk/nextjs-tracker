@@ -1,6 +1,6 @@
 import { DayTraining } from "@/app/(dashboard)/fitness/create-program/components/AddTrainingDay";
 import { prisma } from ".";
-import { $Enums, User } from "@prisma/client";
+import { $Enums, ProgramExercise, ProgramExercisesSet, User } from "@prisma/client";
 
 export type ProgramData = {
   name: string;
@@ -35,4 +35,55 @@ export async function createTrainingProgram(
       },
     },
   });
+}
+
+export async function getUserTrainingPrograms(userId: number) {
+  const programs = await prisma.trainingProgram.findMany({
+    where: {
+      userId,
+    },
+    include: {
+      ProgramExercise: {
+        include: {
+          sets: true,
+        },
+      },
+    },
+  });
+
+  return programs;
+}
+
+export async function getTrainingProgramById(id: string) {
+  const programs = await prisma.trainingProgram.findFirst({
+    where: {
+      id,
+    },
+    include: {
+      ProgramExercise: {
+        include: {
+          sets: true,
+        },
+      },
+    },
+  });
+
+  return programs;
+}
+
+type GroupedByDaysExerciseReduce = Record<string, (ProgramExercise & {sets: ProgramExercisesSet[]})[]>;
+
+export function groupProgramExerciseByDays(
+  programExercises: (ProgramExercise & {sets: ProgramExercisesSet[]})[]
+) {
+  const groupedByDays = programExercises.reduce<GroupedByDaysExerciseReduce>(
+    (grouped, current) => {
+      grouped[current.day] = [...(grouped[current.day] || []), current];
+
+      return grouped;
+    },
+    {}
+  );
+
+  return groupedByDays;
 }

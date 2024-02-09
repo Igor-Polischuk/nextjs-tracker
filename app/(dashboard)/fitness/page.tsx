@@ -1,20 +1,20 @@
 /* eslint-disable react/no-unescaped-entities */
+import TrainingProgramsWidget from "@/components/TrainingProgramsWidget";
+import { getUserTrainingPrograms } from "@/services/db/training-program";
+import { getCurrentUser } from "@/services/db/user";
 import { Button } from "@nextui-org/button";
 import Link from "next/link";
 
-export default function Home() {
+export default async function Home() {
+  const user = await getCurrentUser();
+  const userPrograms = await getUserTrainingPrograms(user.id);
+
   return (
     <div>
       <Button color="primary" fullWidth size="lg" variant="faded">
         Start training
       </Button>
-      <div>
-        <h2 className="text-3xl mb-6 mt-10">My program</h2>
-        <div className="flex flex-col justify-center items-center">
-          <p>You haven't created training program yet</p>
-          <Link href="/fitness/create-program">Create program</Link>
-        </div>
-      </div>
+      <TrainingProgramsWidget trainings={userPrograms}/>
       <div>
         <h2 className="text-3xl mb-6 mt-10">My workouts</h2>
         <div className="flex flex-col justify-center items-center mb-4">
