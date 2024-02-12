@@ -59,6 +59,7 @@ export default async function Home() {
         >
           See all
         </Link>
+        <Link href={'/fitness/exercises'}>Exercises</Link>
       </div>
     </div>
   );
