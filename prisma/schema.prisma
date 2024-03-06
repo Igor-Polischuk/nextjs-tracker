@@ -28,6 +28,7 @@ model User {
   programs         TrainingProgram[]
   createdAt        DateTime            @default(now())
   updatedAt        DateTime?           @updatedAt
+  Food             Food[]
 }
 
 model UserWeightDynamic {
@@ -43,12 +44,14 @@ model Food {
   id            Int         @id @default(autoincrement())
   createdAt     DateTime    @default(now())
   updatedAt     DateTime    @updatedAt
-  foodName      String      @unique
+  foodName      String
   calories      Int
   proteins      Float
   fats          Float
   carbohydrates Float
   Nutrition     Nutrition[]
+  user          User        @relation(fields: [userId], references: [id])
+  userId        Int
 }
 
 model Nutrition {

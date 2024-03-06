@@ -3,23 +3,22 @@ import { prisma } from ".";
 import { SignUpUser } from "@/app/(auth)/sign-up/schema";
 import { auth } from "@/auth";
 
-export async function getCurrentUser() {
-  const session = await auth()
-  const userId = session?.user?.id
+export async function getCurrentUser(): Promise<User> {
+  const session = await auth();
+  const userId = session?.user?.id;
 
   if (!userId) {
-    throw new Error('Problem with getting user id from session')
+    throw new Error("Problem with getting user id from session");
   }
 
   const user = await prisma.user.findFirst({
     where: {
-      id: Number(userId)
+      id: Number(userId),
     },
   });
 
   return user!;
 }
-
 
 export async function createUser(userData: SignUpUser) {
   const user = prisma.user.create({

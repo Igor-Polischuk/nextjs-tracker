@@ -26,6 +26,7 @@ type CreateFood = {
   fats: number;
   foodName: string;
   proteins: number;
+  user: User;
 };
 export async function getDailyNutritionData(day: Date, userId: number) {
   const startOfDay = new Date(day);
@@ -50,14 +51,7 @@ export async function getDailyNutritionData(day: Date, userId: number) {
     },
   });
 
-  return data.map((item) => ({
-    ...item,
-    carbohydrates: Math.round(item.food.carbohydrates),
-    calories: Math.round(item.food.calories),
-    fats: Math.round(item.food.fats),
-    proteins: Math.round(item.food.proteins),
-    amount: Math.round(item.food.proteins),
-  }));
+  return data;
 }
 
 export async function getNutritionByDays(userId: number) {
@@ -111,13 +105,14 @@ export function calculateNutritionTotal(
   );
 }
 
-export async function getFoodList(query?: string, take = 10) {
+export async function getFoodList(userId: number, query?: string, take = 10) {
   const food = await prisma.food.findMany({
     where: {
       foodName: {
         contains: query,
         mode: "insensitive",
       },
+      userId,
     },
     take,
   });
@@ -132,6 +127,7 @@ export const addNutrition = async (params: AddNutritionParams) => {
     fats: params.fats,
     foodName: params.foodName,
     proteins: params.proteins,
+    user: params.user,
   });
 
   const nutritionItem = await prisma.nutrition.create({
@@ -154,6 +150,7 @@ export async function createFood(data: CreateFood) {
       fats: data.fats,
       foodName: data.foodName,
       proteins: data.proteins,
+      userId: data.user.id,
     },
   });
 }
