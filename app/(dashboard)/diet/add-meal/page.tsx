@@ -6,9 +6,13 @@ import Link from "next/link";
 import { getCurrentUser } from "@/services/db/user";
 import AddFoodToNutrition from "./components/AddFoodToNutrition";
 
-export default async function Page() {
+export default async function Page({
+  searchParams,
+}: {
+  searchParams: { query: string };
+}) {
   const currentUser = await getCurrentUser();
-  const foodList = await getFoodList(currentUser.id);
+  const foodList = await getFoodList(currentUser.id, searchParams.query);
   return (
     <main>
       <div>
