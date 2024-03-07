@@ -5,6 +5,7 @@ import { Button } from "@nextui-org/button";
 import Link from "next/link";
 import { getCurrentUser } from "@/services/db/user";
 import AddFoodToNutrition from "./components/AddFoodToNutrition";
+import ButtonLink from "@/components/ButtonLink";
 
 export default async function Page({
   searchParams,
@@ -17,14 +18,9 @@ export default async function Page({
     <main>
       <div>
         <Search />
-        <Button fullWidth className="my-3 p-0">
-          <Link
-            className="flex w-full h-full justify-center items-center"
-            href={"/diet/create-meal"}
-          >
-            Create meal
-          </Link>
-        </Button>
+        <ButtonLink href={"/diet/create-meal"} fullWidth>
+          Create meal
+        </ButtonLink>
       </div>
       <div className="flex flex-col gap-3">
         {foodList.map((food) => {

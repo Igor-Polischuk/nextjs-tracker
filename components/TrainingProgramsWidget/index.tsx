@@ -2,6 +2,7 @@
 import { getUserTrainingPrograms } from "@/services/db/training-program";
 import Link from "next/link";
 import React from "react";
+import ButtonLink from "../ButtonLink";
 
 type PropTypes = {
   trainings: Awaited<ReturnType<typeof getUserTrainingPrograms>>;
@@ -33,12 +34,7 @@ export default function TrainingProgramsWidget({ trainings }: PropTypes) {
             );
           })}
         {!hasPrograms && <p>You haven't created training program yet</p>}
-        <Link
-          href="/fitness/create-program"
-          className="pr-5 pl-5 border rounded-md border-primary-100"
-        >
-          Create program
-        </Link>
+        <ButtonLink href="/fitness/create-program" variant="bordered">Create program</ButtonLink>
       </div>
     </div>
   );

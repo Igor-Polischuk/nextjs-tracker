@@ -4,6 +4,7 @@ import DayCaloriesCounter from "../DayCaloriesCounter";
 import Link from "next/link";
 import { getDailyNutritionData } from "@/services/db/nutrition";
 import { User } from "@prisma/client";
+import ButtonLink from "../ButtonLink";
 
 type PropTypes = {
   user: User;
@@ -19,18 +20,13 @@ export default function TodayNutritionStats({
       <div className="self-start">
         <DayCaloriesCounter nutritionData={nutritionData} user={user} />
       </div>
-      <Button
-        className="w-full mt-5 sm:mt-0 sm:w-auto p-0"
+      <ButtonLink
+        href={"/diet/add-meal"}
         variant="shadow"
         color="primary"
       >
-        <Link
-          className="block w-full h-full flex justify-center items-center p-4"
-          href="/diet/add-meal"
-        >
-          Add a meal
-        </Link>
-      </Button>
+        Add a meal
+      </ButtonLink>
     </div>
   );
 }

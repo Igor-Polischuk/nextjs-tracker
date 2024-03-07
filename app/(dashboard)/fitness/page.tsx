@@ -1,4 +1,5 @@
 /* eslint-disable react/no-unescaped-entities */
+import ButtonLink from "@/components/ButtonLink";
 import TrainingProgramsWidget from "@/components/TrainingProgramsWidget";
 import { getUserTrainingPrograms } from "@/services/db/training-program";
 import { getCurrentUser } from "@/services/db/user";
@@ -11,10 +12,16 @@ export default async function Home() {
 
   return (
     <div>
-      <Button color="primary" fullWidth size="lg" variant="faded">
+      <ButtonLink
+        href="/fitness/create-workout"
+        color="primary"
+        fullWidth
+        size="lg"
+        variant="faded"
+      >
         Start training
-      </Button>
-      <TrainingProgramsWidget trainings={userPrograms}/>
+      </ButtonLink>
+      <TrainingProgramsWidget trainings={userPrograms} />
       <div>
         <h2 className="text-3xl mb-6 mt-10">My workouts</h2>
         <div className="flex flex-col justify-center items-center mb-4">
@@ -59,7 +66,7 @@ export default async function Home() {
         >
           See all
         </Link>
-        <Link href={'/fitness/exercises'}>Exercises</Link>
+        <Link href={"/fitness/exercises"}>Exercises</Link>
       </div>
     </div>
   );
