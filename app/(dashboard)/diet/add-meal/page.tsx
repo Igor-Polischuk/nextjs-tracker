@@ -1,8 +1,6 @@
 import { getFoodList } from "@/services/db/nutrition";
 import React from "react";
-import Search from "./components/Search";
-import { Button } from "@nextui-org/button";
-import Link from "next/link";
+import Search from "@/components/Search";
 import { getCurrentUser } from "@/services/db/user";
 import AddFoodToNutrition from "./components/AddFoodToNutrition";
 import ButtonLink from "@/components/ButtonLink";

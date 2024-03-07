@@ -1,4 +1,5 @@
 import { getPublicExercises } from "@/services/db/exercises";
+import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
@@ -13,7 +14,7 @@ export default async function Page() {
           <Link key={exercise.id} href={`/fitness/exercises/${exercise.id}`}>
             <div className="flex items-center bg-default-100 rounded-lg p-5 gap-5 mb-6">
               <div className="min-w-[100px] flex justify-center items-center">
-                <img
+                <Image
                   width={100}
                   height={100}
                   src={exercise.images[0]}
