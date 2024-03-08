@@ -7,11 +7,40 @@ export type ExercisesFiltersValues = {
   force: string[];
 };
 
-export async function getPublicExercises() {
+export type ExerciseFilters = {
+  query?: string[];
+} & Partial<ExercisesFiltersValues>;
+
+export async function getPublicExercises(filters: ExerciseFilters) {
+  const generateWhere = (filters: Partial<ExerciseFilters>) =>
+    Object.entries(filters).reduce((acc, [key, value]) => {
+      if (!value) return acc;
+
+      switch (key) {
+        case "query":
+          return { ...acc, name: { contains: value[0], mode: "insensitive" } };
+
+        case "equipment":
+        case "force":
+          return { ...acc, [key]: { contains: value[0] } };
+        case "primaryMuscles":
+        case "secondaryMuscles":
+          if (Array.isArray(value) && value.length > 0) {
+            return { ...acc, [key]: { hasEvery: value } };
+          }
+          return acc;
+        default:
+          return acc;
+      }
+    }, {});
+
+  const where = generateWhere(filters);
+  console.log(where);
   return prisma.exercises.findMany({
     orderBy: {
       name: "asc",
     },
+    where,
   });
 }
 
@@ -56,7 +85,7 @@ export async function getExercisesWithFilterParams() {
 
   return {
     filterParams,
-    exercises,
+    allExercises: exercises,
   };
 }
 

@@ -1,0 +1,122 @@
+[
+    {
+        "calories": 250,
+        "carbohydrates": 30,
+        "fats": 10,
+        "foodName": "Brown Rice",
+        "proteins": 5,
+        "userId": 1
+    },
+    {
+        "calories": 120,
+        "carbohydrates": 22,
+        "fats": 1,
+        "foodName": "Oatmeal",
+        "proteins": 3,
+        "userId": 1
+    },
+    {
+        "calories": 210,
+        "carbohydrates": 0,
+        "fats": 15,
+        "foodName": "Salmon",
+        "proteins": 20,
+        "userId": 1
+    },
+    {
+        "calories": 70,
+        "carbohydrates": 18,
+        "fats": 0.2,
+        "foodName": "Banana",
+        "proteins": 1.5,
+        "userId": 1
+    },
+    {
+        "calories": 180,
+        "carbohydrates": 2,
+        "fats": 16,
+        "foodName": "Avocado",
+        "proteins": 2,
+        "userId": 1
+    },
+    {
+        "calories": 90,
+        "carbohydrates": 21,
+        "fats": 0.3,
+        "foodName": "Apple",
+        "proteins": 0.5,
+        "userId": 1
+    },
+    {
+        "calories": 40,
+        "carbohydrates": 9,
+        "fats": 0.1,
+        "foodName": "Carrot",
+        "proteins": 1,
+        "userId": 1
+    },
+    {
+        "calories": 150,
+        "carbohydrates": 0,
+        "fats": 10,
+        "foodName": "Egg",
+        "proteins": 12,
+        "userId": 1
+    },
+    {
+        "calories": 300,
+        "carbohydrates": 25,
+        "fats": 20,
+        "foodName": "Almonds",
+        "proteins": 10,
+        "userId": 1
+    },
+    {
+        "calories": 50,
+        "carbohydrates": 12,
+        "fats": 0,
+        "foodName": "Blueberries",
+        "proteins": 1,
+        "userId": 1
+    },
+    {
+        "calories": 35,
+        "carbohydrates": 7,
+        "fats": 0.2,
+        "foodName": "Spinach",
+        "proteins": 2.9,
+        "userId": 1
+    },
+    {
+        "calories": 220,
+        "carbohydrates": 0,
+        "fats": 18,
+        "foodName": "Cheese",
+        "proteins": 14,
+        "userId": 1
+    },
+    {
+        "calories": 145,
+        "carbohydrates": 0,
+        "fats": 5,
+        "foodName": "Chicken Breast",
+        "proteins": 26,
+        "userId": 1
+    },
+    {
+        "calories": 105,
+        "carbohydrates": 23,
+        "fats": 0.4,
+        "foodName": "Sweet Potato",
+        "proteins": 2,
+        "userId": 1
+    },
+    {
+        "calories": 200,
+        "carbohydrates": 40,
+        "fats": 2,
+        "foodName": "Quinoa",
+        "proteins": 8,
+        "userId": 1
+    }
+]

@@ -1,17 +1,36 @@
-import { getExercisesWithFilterParams } from "@/services/db/exercises";
+import {
+  ExerciseFilters,
+  getExercisesWithFilterParams,
+  getPublicExercises,
+} from "@/services/db/exercises";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import ExercisesFilter from "./components/ExercisesFilter";
 
-export default async function Page() {
-  const { exercises, filterParams } = await getExercisesWithFilterParams();
+type PageParams = {
+  searchParams: Record<string, string>;
+};
+
+export default async function Page(params: PageParams) {
+  const filters = Object.keys(params.searchParams).reduce<ExerciseFilters>(
+    (filters, filterName) => {
+      return {
+        ...filters,
+        [filterName]: params.searchParams[filterName].split(", "),
+      };
+    },
+    {}
+  );
+
+  const { allExercises, filterParams } = await getExercisesWithFilterParams();
+  const filteredExercises = await getPublicExercises(filters);
 
   return (
     <div>
       <h1 className="text-3xl mb-6 ">Exercises</h1>
-      <ExercisesFilter exercises={exercises} filterParams={filterParams} />
-      {exercises.map((exercise) => {
+      <ExercisesFilter exercises={allExercises} filterParams={filterParams} />
+      {filteredExercises.map((exercise) => {
         return (
           <Link key={exercise.id} href={`/fitness/exercises/${exercise.id}`}>
             <div className="flex items-center bg-default-100 rounded-lg p-5 gap-5 mb-6">

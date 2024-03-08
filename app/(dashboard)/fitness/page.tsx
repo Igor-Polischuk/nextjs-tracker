@@ -1,5 +1,6 @@
 /* eslint-disable react/no-unescaped-entities */
 import ButtonLink from "@/components/ButtonLink";
+import ExercisesWidget from "@/components/ExercisesWidget";
 import TrainingProgramsWidget from "@/components/TrainingProgramsWidget";
 import { getUserTrainingPrograms } from "@/services/db/training-program";
 import { getCurrentUser } from "@/services/db/user";
@@ -66,7 +67,7 @@ export default async function Home() {
         >
           See all
         </Link>
-        <Link href={"/fitness/exercises"}>Exercises</Link>
+        <ExercisesWidget />
       </div>
     </div>
   );
