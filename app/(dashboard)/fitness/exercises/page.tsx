@@ -1,14 +1,16 @@
-import { getPublicExercises } from "@/services/db/exercises";
+import { getExercisesWithFilterParams } from "@/services/db/exercises";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
+import ExercisesFilter from "./components/ExercisesFilter";
 
 export default async function Page() {
-  const exercises = await getPublicExercises();
+  const { exercises, filterParams } = await getExercisesWithFilterParams();
 
   return (
     <div>
       <h1 className="text-3xl mb-6 ">Exercises</h1>
+      <ExercisesFilter exercises={exercises} filterParams={filterParams} />
       {exercises.map((exercise) => {
         return (
           <Link key={exercise.id} href={`/fitness/exercises/${exercise.id}`}>
