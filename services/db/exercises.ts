@@ -35,7 +35,6 @@ export async function getPublicExercises(filters: ExerciseFilters) {
     }, {});
 
   const where = generateWhere(filters);
-  console.log(where);
   return prisma.exercises.findMany({
     orderBy: {
       name: "asc",
