@@ -20,7 +20,7 @@ export const workoutReducer = (
       return {
         ...state,
         currentExercise: {
-          name: "",
+          name: action.payload.exerciseName,
           exerciseId: action.payload.exerciseId,
           sets: [],
         },
@@ -47,6 +47,11 @@ export const workoutReducer = (
       };
     case ActionType.RESET:
       return initValue;
+    case ActionType.START_WORKOUT:
+      return {
+        ...state,
+        workoutStartTime: new Date(),
+      };
     default:
       return state;
   }

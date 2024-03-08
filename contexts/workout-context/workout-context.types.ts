@@ -8,12 +8,14 @@ export enum ActionType {
   FINISH_EXERCISE,
   ADD_SET,
   RESET,
+  START_WORKOUT,
 }
 
 interface StartExerciseAction {
   type: ActionType.START_EXERCISE;
   payload: {
     exerciseId: string;
+    exerciseName: string;
   };
 }
 
@@ -30,11 +32,16 @@ interface ResetAction {
   type: ActionType.RESET;
 }
 
+interface StartWorkoutAction {
+  type: ActionType.START_WORKOUT;
+}
+
 export type WorkoutAction =
   | StartExerciseAction
   | FinishExerciseAction
   | AddSetAction
-  | ResetAction;
+  | ResetAction
+  | StartWorkoutAction;
 
 export type WorkoutExerciseSet = {
   reps: number;
