@@ -22,6 +22,8 @@ export const workoutReducer = (
         currentExercise: {
           name: action.payload.exerciseName,
           exerciseId: action.payload.exerciseId,
+          primaryMuscles: action.payload.primaryMuscles,
+          secondaryMuscles: action.payload.secondaryMuscles,
           sets: [],
         },
       };
@@ -29,9 +31,12 @@ export const workoutReducer = (
       if (!state.currentExercise) {
         throw new Error(`Cannot ${action.type}. currentExercise is null`);
       }
+
       return {
         ...state,
-        prevExercises: [...state.prevExercises, state.currentExercise],
+        prevExercises: state.currentExercise.sets.length
+          ? [...state.prevExercises, state.currentExercise]
+          : [...state.prevExercises],
         currentExercise: null,
       };
     case ActionType.ADD_SET:

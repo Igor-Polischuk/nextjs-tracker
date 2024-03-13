@@ -1,6 +1,6 @@
 export enum WorkoutExerciseSetType {
-  WARM_UP,
-  WORKING,
+  WARM_UP = "WARM_UP",
+  WORKING = "WORKING",
 }
 
 export enum ActionType {
@@ -16,6 +16,8 @@ interface StartExerciseAction {
   payload: {
     exerciseId: string;
     exerciseName: string;
+    primaryMuscles: string[];
+    secondaryMuscles: string[];
   };
 }
 
@@ -52,6 +54,8 @@ export type WorkoutExerciseSet = {
 export type WorkoutExercise = {
   name: string;
   exerciseId: string;
+  primaryMuscles: string[];
+  secondaryMuscles: string[];
   sets: WorkoutExerciseSet[];
 };
 

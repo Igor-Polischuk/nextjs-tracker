@@ -11,9 +11,12 @@ export type ExerciseFilters = {
   query?: string[];
 } & Partial<ExercisesFiltersValues>;
 
-export async function getPublicExercises(filters: ExerciseFilters) {
-  const generateWhere = (filters: Partial<ExerciseFilters>) =>
-    Object.entries(filters).reduce((acc, [key, value]) => {
+export async function getPublicExercises(filters?: ExerciseFilters) {
+  const generateWhere = (filters?: Partial<ExerciseFilters>) => {
+    if (!filters) {
+      return {};
+    }
+    return Object.entries(filters).reduce((acc, [key, value]) => {
       if (!value) return acc;
 
       switch (key) {
@@ -33,6 +36,7 @@ export async function getPublicExercises(filters: ExerciseFilters) {
           return acc;
       }
     }, {});
+  };
 
   const where = generateWhere(filters);
   return prisma.exercises.findMany({
