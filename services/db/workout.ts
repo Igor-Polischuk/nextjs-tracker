@@ -32,3 +32,19 @@ export const createWorkout = (
     },
   });
 };
+
+export const getUserWorkouts = (userId: number) => {
+  return prisma.workout.findMany({
+    where: {
+      userId,
+    },
+    include: {
+      exercises: {
+        include: {
+          sets: true,
+          exercise: true
+        }
+      }
+    }
+  });
+};
