@@ -16,4 +16,8 @@ async function seed() {
   console.log("finished adding exercises");
 }
 
-seed()
+seed();
+
+module.exports = {
+  seedExercise: seed,
+};

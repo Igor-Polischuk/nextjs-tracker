@@ -51,3 +51,7 @@ async function seed() {
 }
 
 seed();
+
+module.exports = {
+  seedNutrition: seed,
+};

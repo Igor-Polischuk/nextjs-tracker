@@ -21,3 +21,7 @@ async function seed() {
 }
 
 seed();
+
+module.exports = {
+  seedFood: seed,
+};
