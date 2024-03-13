@@ -1,5 +1,6 @@
 import RadioTabs from "@/components/RadioTabs";
 import { Workout, WorkoutExercise } from "@/contexts/workout-context";
+import { CreateWorkoutType } from "@/services/db/workout";
 import { getTimeBetweenDates } from "@/utils/get-time-between-dates";
 import { Button } from "@nextui-org/button";
 import {
@@ -11,6 +12,7 @@ import {
   useDisclosure,
 } from "@nextui-org/modal";
 import React, { useMemo } from "react";
+import { useRouter } from "next/navigation";
 
 type PropsTypes = {
   workout: Workout;
@@ -18,6 +20,7 @@ type PropsTypes = {
 
 function FinishWorkoutModal({ workout }: PropsTypes) {
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
+  const router = useRouter();
 
   const setsForPrimaryMuscles = useMemo(() => {
     const muscleSetsCount: { [key: string]: number } = {};
@@ -38,6 +41,27 @@ function FinishWorkoutModal({ workout }: PropsTypes) {
 
     return muscleSetsCount;
   }, [workout]);
+
+  const handleFinish = async () => {
+    const workoutData: CreateWorkoutType = {
+      endTime: new Date(),
+      startTime: workout.workoutStartTime!,
+      exercises: workout.currentExercise
+        ? [...workout.prevExercises, workout.currentExercise]
+        : [...workout.prevExercises],
+    };
+
+    await fetch(`/api/workout`, {
+      method: "POST",
+      body: JSON.stringify(workoutData),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+
+    router.push("/fitness");
+    router.refresh();
+  };
 
   return (
     <>
@@ -74,12 +98,14 @@ function FinishWorkoutModal({ workout }: PropsTypes) {
                 </div>
               </ModalBody>
               <ModalFooter>
-                <Button color="danger" variant="light" onClick={onClose}>Cancel</Button>
+                <Button color="danger" variant="light" onClick={onClose}>
+                  Cancel
+                </Button>
                 <Button
                   color="primary"
                   onClick={() => {
                     onClose();
-                    // resetStates();
+                    handleFinish();
                   }}
                 >
                   Finish

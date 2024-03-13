@@ -1,6 +1,6 @@
 import { DayTraining } from "@/app/(dashboard)/fitness/create-program/components/AddTrainingDay";
 import { prisma } from ".";
-import { $Enums, ProgramExercise, ProgramExercisesSet, User } from "@prisma/client";
+import { ProgramExercise, ProgramExercisesSet, User } from "@prisma/client";
 
 export type ProgramData = {
   name: string;
@@ -12,7 +12,7 @@ export async function createTrainingProgram(
   programData: ProgramData,
   user: User
 ) {
-  return await prisma.trainingProgram.create({
+  return prisma.trainingProgram.create({
     data: {
       title: programData.name,
       description: programData.description,
@@ -23,7 +23,6 @@ export async function createTrainingProgram(
             name: exercise.name,
             description: exercise.description,
             day: dayTraining.dayName,
-            type: $Enums.TrainingActivityType.EXERCISE,
             sets: {
               create: exercise.sets.map((set) => ({
                 reps: set.reps,

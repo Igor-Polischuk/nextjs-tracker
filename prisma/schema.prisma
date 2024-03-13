@@ -80,7 +80,6 @@ model TrainingProgram {
 model ProgramExercise {
   id          String                @id @default(uuid())
   name        String
-  type        TrainingActivityType
   program     TrainingProgram       @relation(fields: [programId], references: [id])
   programId   String
   description String?
@@ -104,47 +103,49 @@ model Workout {
   id        String             @id @default(uuid())
   user      User               @relation(fields: [userId], references: [id])
   userId    Int
-  date      DateTime
-  totalTime Int
+  startTime DateTime
+  endTime   DateTime
   exercises WorkoutExercises[]
   createdAt DateTime           @default(now())
   updatedAt DateTime           @updatedAt
 }
 
 model WorkoutExercises {
-  id        String               @id @default(uuid())
-  workout   Workout              @relation(fields: [workoutId], references: [id])
-  workoutId String
-  name      String
-  type      TrainingActivityType
-  sets      WorkoutExrcisesSet[]
-  createdAt DateTime             @default(now())
-  updatedAt DateTime             @updatedAt
+  id         String               @id @default(uuid())
+  workout    Workout              @relation(fields: [workoutId], references: [id])
+  workoutId  String
+  exercise   Exercises            @relation(fields: [exerciseId], references: [id])
+  exerciseId String
+  sets       WorkoutExrcisesSet[]
+  createdAt  DateTime             @default(now())
+  updatedAt  DateTime             @updatedAt
 }
 
 model WorkoutExrcisesSet {
-  id                String           @id @default(uuid())
-  workoutExercise   WorkoutExercises @relation(fields: [workoutExerciseId], references: [id])
+  id                String                 @id @default(uuid())
+  workoutExercise   WorkoutExercises       @relation(fields: [workoutExerciseId], references: [id])
   workoutExerciseId String
   reps              Int
   weight            Float
-  createdAt         DateTime         @default(now())
-  updatedAt         DateTime         @updatedAt
+  type              WorkoutExerciseSetType
+  createdAt         DateTime               @default(now())
+  updatedAt         DateTime               @updatedAt
 }
 
 model Exercises {
-  id               String   @id @default(uuid())
+  id               String             @id @default(uuid())
   name             String
   instructions     String?
   videoUrl         String?
   images           String[]
   primaryMuscles   String[]
   secondaryMuscles String[]
-  createdAt        DateTime @default(now())
-  updatedAt        DateTime @updatedAt
+  createdAt        DateTime           @default(now())
+  updatedAt        DateTime           @updatedAt
   force            String
   equipment        String
   category         String
+  WorkoutExercises WorkoutExercises[]
 }
 
 enum Goal {
@@ -166,9 +167,9 @@ enum ActivityLevel {
   EXTRA_ACTIVE          @map("1.9")
 }
 
-enum TrainingActivityType {
-  REST
-  EXERCISE
+enum WorkoutExerciseSetType {
+  WARM_UP
+  WORKING
 }
 
 enum WeekDay {
