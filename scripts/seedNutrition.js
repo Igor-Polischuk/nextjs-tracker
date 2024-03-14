@@ -1,5 +1,4 @@
 const fs = require("fs");
-const { PrismaClient } = require("@prisma/client");
 
 function randomDate(lastNDays) {
   const today = new Date();
@@ -36,9 +35,8 @@ function generateNutritionData(foods, days = 5, userId = 1) {
 }
 
 const nutrition = generateNutritionData(foods);
-const prisma = new PrismaClient();
 
-async function seed() {
+async function seed(prisma) {
   console.log("Start adding nutrition");
 
   await prisma.nutrition.createMany({
@@ -49,8 +47,6 @@ async function seed() {
 
   console.log("Finished adding foods");
 }
-
-seed();
 
 module.exports = {
   seedNutrition: seed,

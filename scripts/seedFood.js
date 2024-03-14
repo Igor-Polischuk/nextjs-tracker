@@ -1,6 +1,5 @@
 const { PrismaClient } = require("@prisma/client");
 const fs = require("fs");
-const prisma = new PrismaClient();
 
 const foodsData = fs.readFileSync("./scripts/food.json", {
   encoding: "utf8",
@@ -8,7 +7,7 @@ const foodsData = fs.readFileSync("./scripts/food.json", {
 });
 const foods = JSON.parse(foodsData);
 
-async function seed() {
+async function seed(prisma) {
   console.log("Start adding foods");
 
   await prisma.food.createMany({
@@ -19,8 +18,6 @@ async function seed() {
 
   console.log("Finished adding foods");
 }
-
-seed();
 
 module.exports = {
   seedFood: seed,
