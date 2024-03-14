@@ -13,7 +13,7 @@ export default async function Home() {
   const user = await getCurrentUser();
   const userPrograms = await getUserTrainingPrograms(user.id);
   const userWorkouts = await getUserWorkouts(user.id);
-  console.log(userWorkouts[0].exercises);
+
   return (
     <div>
       <ButtonLink
@@ -28,6 +28,7 @@ export default async function Home() {
       <TrainingProgramsWidget trainings={userPrograms} />
       <div>
         <h2 className="text-3xl mb-6 mt-10">My workouts</h2>
+        {!userWorkouts.length && <p>You haven't had any workout yet</p>}
         {userWorkouts.map((workout) => {
           return <WorkoutPreview key={workout.id} workout={workout} />;
         })}

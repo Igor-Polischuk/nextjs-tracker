@@ -35,7 +35,7 @@ export default function WorkoutPreview({ workout }: PropTypes) {
           })}
         </div>
         <div className="min-w-full flex justify-stretch">
-          <ButtonLink href={`fitness/workout/${workout.id}`}>See details</ButtonLink>
+          <ButtonLink href={`fitness/${workout.id}`}>See details</ButtonLink>
         </div>
       </div>
     </div>

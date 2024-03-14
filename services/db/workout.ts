@@ -42,9 +42,25 @@ export const getUserWorkouts = (userId: number) => {
       exercises: {
         include: {
           sets: true,
-          exercise: true
-        }
-      }
-    }
+          exercise: true,
+        },
+      },
+    },
+  });
+};
+
+export const getWorkoutById = (id: string) => {
+  return prisma.workout.findFirstOrThrow({
+    where: {
+      id,
+    },
+    include: {
+      exercises: {
+        include: {
+          exercise: true,
+          sets: true,
+        },
+      },
+    },
   });
 };
