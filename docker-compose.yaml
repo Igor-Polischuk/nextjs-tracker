@@ -12,15 +12,15 @@ services:
       - POSTGRES_USER=admin
     image: postgres:15.3-alpine3.18
     
-  nextapp:
-    depends_on:
-      - postgres
-    networks:
-      - app-tier
-    image: nextapp
-    build: .
-    ports:
-      - "3000:3000"
+  # nextapp:
+  #   depends_on:
+  #     - postgres
+  #   networks:
+  #     - app-tier
+  #   image: nextapp
+  #   build: .
+  #   ports:
+  #     - "3000:3000"
 
 networks:
   app-tier:
